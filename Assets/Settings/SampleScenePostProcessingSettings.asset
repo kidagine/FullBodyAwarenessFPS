@@ -41,7 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components:
   - {fileID: 8711377374188185572}
-  - {fileID: 3109681608999342120}
+  - {fileID: 6640133647794636954}
   - {fileID: 396278178000043239}
   - {fileID: -2109818796249167647}
 --- !u!114 &396278178000043239
@@ -68,7 +68,7 @@ MonoBehaviour:
     m_Value: 0
     min: -100
     max: 100
---- !u!114 &3109681608999342120
+--- !u!114 &6640133647794636954
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,8 +83,8 @@ MonoBehaviour:
   active: 1
   m_AdvancedMode: 0
   mode:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 0
   meteringMode:
     m_OverrideState: 0
     m_Value: 2
@@ -92,17 +92,17 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   fixedExposure:
+    m_OverrideState: 1
+    m_Value: 8.5
+  compensation:
     m_OverrideState: 0
     m_Value: 0
-  compensation:
-    m_OverrideState: 1
-    m_Value: 0.5
   limitMin:
     m_OverrideState: 0
     m_Value: -10
   limitMax:
     m_OverrideState: 1
-    m_Value: 9.5
+    m_Value: 8.5
   curveMap:
     m_OverrideState: 0
     m_Value:
