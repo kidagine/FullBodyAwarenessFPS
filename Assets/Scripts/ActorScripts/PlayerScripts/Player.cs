@@ -72,7 +72,7 @@ public class Player : Actor
 
     void LateUpdate()
     {
-        EdgeFalling();
+        //EdgeFalling();
     }
 
     public void Holster()
@@ -128,17 +128,17 @@ public class Player : Actor
 
     private void CheckGrounded()
     {
-        Vector3 checkGroundPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z - 0.1f);
-        IsGrounded = Physics.Raycast(checkGroundPosition, Vector3.down, 1.0f, _groundMask );
-        if (IsGrounded && _velocity.y < 0)
-        {
-            _velocity.y = -2.0f;
-            _animator.SetBool("IsFalling", false);
-        }
-        else
-        {
-            _animator.SetBool("IsFalling", true);
-        }
+        //Vector3 checkGroundPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z - 0.1f);
+        //IsGrounded = Physics.Raycast(checkGroundPosition, Vector3.down, 1.0f, _groundMask );
+        //if (IsGrounded && _velocity.y < 0)
+        //{
+        //    _velocity.y = -2.0f;
+        //    _animator.SetBool("IsFalling", false);
+        //}
+        //else
+        //{
+        //    _animator.SetBool("IsFalling", true);
+        //}
     }
 
     private void Gravity()
@@ -412,45 +412,45 @@ public class Player : Actor
 
     private void Footsteps()
     {
-        Physics.Raycast(_leftFoot.transform.position, Vector3.down, out RaycastHit hitLeft, 0.21f);
-        if (hitLeft.collider != null)
-        {
-            if (hitLeft.collider.gameObject.layer == LayerMask.NameToLayer("Environment"))
-            {
-                if (_hasRaisedLeftFoot)
-                {
-                    _hasRaisedLeftFoot = false;
-                    AudioManager.Instance.PlayRandomFromSoundGroup("PlayerConcreteFootsteps");
-                }
-            }
-        }
-        else
-        {
-            if (!_hasRaisedLeftFoot)
-            {
-                _hasRaisedLeftFoot = true;
-            }
-        }
+        //Physics.Raycast(_leftFoot.transform.position, Vector3.down, out RaycastHit hitLeft, 0.21f);
+        //if (hitLeft.collider != null)
+        //{
+        //    if (hitLeft.collider.gameObject.layer == LayerMask.NameToLayer("Environment"))
+        //    {
+        //        if (_hasRaisedLeftFoot)
+        //        {
+        //            _hasRaisedLeftFoot = false;
+        //            AudioManager.Instance.PlayRandomFromSoundGroup("PlayerConcreteFootsteps");
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    if (!_hasRaisedLeftFoot)
+        //    {
+        //        _hasRaisedLeftFoot = true;
+        //    }
+        //}
 
-        Physics.Raycast(_rightFoot.transform.position, Vector3.down, out RaycastHit hitRight, 0.21f);
-        if (hitRight.collider != null)
-        {
-            if (hitRight.collider.gameObject.layer == LayerMask.NameToLayer("Environment"))
-            {
-                if (_hasRaisedRightFoot)
-                {
-                    _hasRaisedRightFoot = false;
-                    AudioManager.Instance.PlayRandomFromSoundGroup("PlayerConcreteFootsteps");
-                }
-            }
-        }
-        else
-        {
-            if (!_hasRaisedRightFoot)
-            {
-                _hasRaisedRightFoot = true;
-            }
-        }
+        //Physics.Raycast(_rightFoot.transform.position, Vector3.down, out RaycastHit hitRight, 0.21f);
+        //if (hitRight.collider != null)
+        //{
+        //    if (hitRight.collider.gameObject.layer == LayerMask.NameToLayer("Environment"))
+        //    {
+        //        if (_hasRaisedRightFoot)
+        //        {
+        //            _hasRaisedRightFoot = false;
+        //            AudioManager.Instance.PlayRandomFromSoundGroup("PlayerConcreteFootsteps");
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    if (!_hasRaisedRightFoot)
+        //    {
+        //        _hasRaisedRightFoot = true;
+        //    }
+        //}
     }
 
     public void InsertRound(GameObject round)

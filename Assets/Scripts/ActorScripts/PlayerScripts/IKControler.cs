@@ -20,19 +20,48 @@ public class IKControler : MonoBehaviour
 
     private Transform chest;
     public Transform target;
+    public Transform staticTarget;
+
     public Vector3 offset;
+    public GameObject _fpsCamera;
+    public GameObject _thirdPersonCamera;
 
     void Start()
     {
         _animator = GetComponent<Animator>();
-        chest = _animator.GetBoneTransform(HumanBodyBones.Chest);
+        chest = _animator.GetBoneTransform(HumanBodyBones.Head);
     }
 
-    //private void LateUpdate()
-    //{
-    //    chest.LookAt(target);
-    //    chest.rotation = chest.rotation * Quaternion.Euler(offset);
-    //}
+    private void Update()
+    {
+        //Temp
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (_fpsCamera.activeSelf)
+            {
+                _fpsCamera.SetActive(false);
+                _thirdPersonCamera.SetActive(true);
+            }
+            else
+            {
+                _fpsCamera.SetActive(true);
+                _thirdPersonCamera.SetActive(false);
+            }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (_fpsCamera.activeSelf)
+        {
+            chest.LookAt(target);
+            chest.rotation *= Quaternion.Euler(offset);
+        }
+        else
+        {
+            chest.LookAt(staticTarget);
+        }
+    }
 
     void OnAnimatorIK(int layerIndex)
     {

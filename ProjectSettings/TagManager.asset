@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
   - Environment
+  - CameraIgnore
   - 
   - 
   - 
@@ -36,7 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - DigitalHuman_Tearline
   m_SortingLayers:
   - name: Default
     uniqueID: 0
