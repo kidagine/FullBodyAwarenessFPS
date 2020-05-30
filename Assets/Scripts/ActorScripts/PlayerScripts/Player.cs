@@ -294,7 +294,7 @@ public class Player : Actor
             _walkSpeed = 3.5f;
             _moveSpeed = _walkSpeed;
             _animator.SetBool("IsRunning", false);
-            _animator.SetBool("IsJoggingOn", _isJoggingOn);
+            _animator.SetBool("IsJogging", _isJoggingOn);
         }
     }
 
@@ -472,7 +472,7 @@ public class Player : Actor
             _walkSpeed = 3.5f;
         }
         _moveSpeed = _walkSpeed;
-        _animator.SetBool("IsJoggingOn", _isJoggingOn);
+        _animator.SetBool("IsJogging", _isJoggingOn);
     }
 
     private void StabilizeArm()
