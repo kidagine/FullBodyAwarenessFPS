@@ -72,7 +72,7 @@ public class Player : Actor
 
     void LateUpdate()
     {
-        //EdgeFalling();
+        EdgeFalling();
     }
 
     public void Holster()
@@ -128,17 +128,17 @@ public class Player : Actor
 
     private void CheckGrounded()
     {
-        //Vector3 checkGroundPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z - 0.1f);
-        //IsGrounded = Physics.Raycast(checkGroundPosition, Vector3.down, 1.0f, _groundMask );
-        //if (IsGrounded && _velocity.y < 0)
-        //{
-        //    _velocity.y = -2.0f;
-        //    _animator.SetBool("IsFalling", false);
-        //}
-        //else
-        //{
-        //    _animator.SetBool("IsFalling", true);
-        //}
+        Vector3 checkGroundPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z - 0.1f);
+        IsGrounded = Physics.Raycast(checkGroundPosition, Vector3.down, 1.0f, _groundMask);
+        if (IsGrounded && _velocity.y < 0)
+        {
+            _velocity.y = -2.0f;
+            _animator.SetBool("IsFalling", false);
+        }
+        else
+        {
+            _animator.SetBool("IsFalling", true);
+        }
     }
 
     private void Gravity()
