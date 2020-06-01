@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerInputSystem : MonoBehaviour
 {
     [SerializeField] private Player _playerScript;
+    [SerializeField] private PlayerMovement _playerMovementScript;
     [SerializeField] private PlayerCamera _playerCamera;
     private PlayerInputActions playerInputActions;
 
@@ -24,7 +25,7 @@ public class PlayerInputSystem : MonoBehaviour
 
     public void SetMove(InputAction.CallbackContext context)
     {
-        _playerScript.MovementInput = context.ReadValue<Vector2>();
+        _playerMovementScript.MovementInput = context.ReadValue<Vector2>();
     }
 
     public void SetCamera(InputAction.CallbackContext context)
@@ -36,7 +37,7 @@ public class PlayerInputSystem : MonoBehaviour
     {
         if (context.performed)
         {
-            _playerScript.Jump();
+            _playerMovementScript.Jump();
         }
     }
 
@@ -44,7 +45,7 @@ public class PlayerInputSystem : MonoBehaviour
     {
         if (context.performed)
         {
-            _playerScript.Crouch();
+            _playerMovementScript.Crouch();
         }
     }
 
@@ -52,7 +53,7 @@ public class PlayerInputSystem : MonoBehaviour
     {
         if (context.performed)
         {
-            _playerScript.Prone();
+            _playerMovementScript.Prone();
         }
     }
 
@@ -60,7 +61,7 @@ public class PlayerInputSystem : MonoBehaviour
     {
         if (context.performed)
         {
-            _playerScript.Slide();
+            _playerMovementScript.Slide();
         }
     }
 
@@ -68,11 +69,11 @@ public class PlayerInputSystem : MonoBehaviour
     {
         if (context.performed)
         {
-            _playerScript.Run();
+            _playerMovementScript.Run();
         }
         else if (context.canceled)
         {
-            _playerScript.StopRun();
+            _playerMovementScript.StopRun();
         }
     }
 
@@ -88,7 +89,7 @@ public class PlayerInputSystem : MonoBehaviour
     {
         if (context.performed)
         {
-            _playerScript.SwitchWalkMode();
+            _playerMovementScript.SwitchWalkMode();
         }
     }
 

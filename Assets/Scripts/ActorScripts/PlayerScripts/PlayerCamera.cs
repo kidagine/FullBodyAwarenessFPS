@@ -2,7 +2,7 @@
 
 public class PlayerCamera : MonoBehaviour
 {
-    [SerializeField] private Player _playerScript;
+    [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private GameObject _player;
     [SerializeField] private Transform _playerHead;
     [SerializeField] private Transform _playerEyes;
@@ -34,7 +34,7 @@ public class PlayerCamera : MonoBehaviour
 
     private void RotateCamera()
     {
-        if (!_playerScript.LockMovement)
+        if (!_playerMovement.LockMovement)
         {
             float mouseX = CameraInput.x * Time.deltaTime;
             float mouseY = CameraInput.y * Time.deltaTime;
@@ -87,9 +87,9 @@ public class PlayerCamera : MonoBehaviour
         }
 
         //Rotate player pivot if they run and press A or D
-        if (_playerScript.Move.magnitude > 0.0f)
+        if (_playerMovement.Move.magnitude > 0.0f)
         {
-            if (_playerScript.IsRunning && Input.GetKey(KeyCode.A) || _playerScript.IsRunning && Input.GetKey(KeyCode.D))
+            if (_playerMovement.IsRunning && Input.GetKey(KeyCode.A) || _playerMovement.IsRunning && Input.GetKey(KeyCode.D))
             {
                 if (Input.GetKeyDown(KeyCode.A))
                 {
@@ -105,7 +105,7 @@ public class PlayerCamera : MonoBehaviour
                 _playerPivot.transform.rotation = Quaternion.identity;
             }
             Quaternion cameraPointRotation = _playerCameraPoint.transform.rotation;
-            _player.transform.localRotation = Quaternion.Slerp(_player.transform.localRotation, cameraPointRotation, Time.deltaTime * _playerScript.Move.magnitude * 30.0f);
+            _player.transform.localRotation = Quaternion.Slerp(_player.transform.localRotation, cameraPointRotation, Time.deltaTime * _playerMovement.Move.magnitude * 30.0f);
         }
     }
 }

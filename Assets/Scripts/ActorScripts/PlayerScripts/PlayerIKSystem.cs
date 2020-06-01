@@ -4,6 +4,7 @@ public class PlayerIKSystem : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private LayerMask _environmentLayer;
+    [SerializeField] private PlayerMovement _playerMovement;
     [Range(0, 2)] [SerializeField] private float _groundRaycast = 1.14f;
     [Range(0, 2)] [SerializeField] private float _raycastDownDistance = 1.5f;
     [Range(0, 1)] [SerializeField] private float _pelvisUpAndDownSpeed = 0.28f;
@@ -37,15 +38,18 @@ public class PlayerIKSystem : MonoBehaviour
 
     private void FootPositionSolver(Vector3 footPosition, ref Vector3 footIKPosition, ref Quaternion footIKRotations)
     {
-        if (Physics.Raycast(footPosition, Vector3.down, out RaycastHit hit, _raycastDownDistance + _groundRaycast, _environmentLayer))
+        if (_playerMovement.IsGrounded)
         {
-            footIKPosition = footPosition;
-            footIKPosition.y = hit.point.y;
-            footIKRotations = Quaternion.FromToRotation(Vector3.up, hit.normal) * transform.rotation;
-        }
-        else
-        {
-            footIKPosition = Vector3.zero;
+            if (Physics.Raycast(footPosition, Vector3.down, out RaycastHit hit, _raycastDownDistance + _groundRaycast, _environmentLayer))
+            {
+                footIKPosition = footPosition;
+                footIKPosition.y = hit.point.y;
+                footIKRotations = Quaternion.FromToRotation(Vector3.up, hit.normal) * transform.rotation;
+            }
+            else
+            {
+                footIKPosition = Vector3.zero;
+            }
         }
     }
 
