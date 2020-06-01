@@ -17,8 +17,6 @@ public class PlayerInputSystem : MonoBehaviour
         playerInputActions.PlayerControls.Crouch.performed += Crouch;
         playerInputActions.PlayerControls.Crouch.performed += Slide;
         playerInputActions.PlayerControls.Prone.performed += Prone;
-        playerInputActions.PlayerControls.Shoot.performed += Shoot;
-        playerInputActions.PlayerControls.Holster.performed += Holster;
         playerInputActions.PlayerControls.Run.performed += Run;
         playerInputActions.PlayerControls.PauseRun.performed += PauseRun;
         playerInputActions.PlayerControls.SwitchWalk.performed += SwitchWalk;
@@ -63,22 +61,6 @@ public class PlayerInputSystem : MonoBehaviour
         if (context.performed)
         {
             _playerScript.Slide();
-        }
-    }
-
-    public void Shoot(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            _playerScript.Shoot();
-        }
-    }
-
-    public void Holster(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            _playerScript.Holster();
         }
     }
 

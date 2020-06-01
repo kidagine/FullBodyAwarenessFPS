@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : Actor
+public class Player : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _revolverLegPlacement;
@@ -13,7 +13,6 @@ public class Player : Actor
     [SerializeField] private Transform _armStabilizerPoint;
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private GameObject _camera;
-    [SerializeField] private Revolver _revolver;
     [SerializeField] private LayerMask _groundMask;
     private Vector2 _movementInput;
     private Vector3 _velocity;
@@ -51,17 +50,6 @@ public class Player : Actor
     public Vector2 MovementInput { get; set; }
 
 
-    void Start()
-    {
-        SetHealth();
-    }
-
-    public override void SetHealth()
-    {
-        Health.MaxHealth = 100;
-        Health.MinimumMassMultiplier = 3;
-    }
-
     void Update()
     {
         Movement();
@@ -72,27 +60,9 @@ public class Player : Actor
 
     void LateUpdate()
     {
-        EdgeFalling();
+       //EdgeFalling();
     }
 
-    public void Holster()
-    {
-        IsHolster = !IsHolster;
-        _animator.SetBool("IsHolstering", IsHolster);
-        if (IsHolster)
-        {
-            _revolver.transform.SetParent(_revolverLegPlacement);
-            _revolver.transform.position = _revolverLegPlacement.position;
-            _revolver.transform.rotation = _revolverLegPlacement.rotation;
-        }
-        else
-        {
-            _revolver.transform.SetParent(_revolverHandPlacement);
-            _revolver.transform.position = _revolverHandPlacement.position;
-            _revolver.transform.rotation = _revolverHandPlacement.rotation;
-        }
-        _isArmStabilized = !_isArmStabilized;
-    }
 
     private void Movement()
     {
@@ -129,7 +99,7 @@ public class Player : Actor
     private void CheckGrounded()
     {
         Vector3 checkGroundPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z - 0.1f);
-        IsGrounded = Physics.Raycast(checkGroundPosition, Vector3.down, 1.0f, _groundMask);
+        IsGrounded = Physics.Raycast(checkGroundPosition, Vector3.down, 0.6f, _groundMask);
         if (IsGrounded && _velocity.y < 0)
         {
             _velocity.y = -2.0f;
@@ -174,8 +144,8 @@ public class Player : Actor
     {
         if (IsGrounded)
         {
-            _velocity.y = Mathf.Sqrt(_jumpHeight * -3.0f * _gravity);
             _animator.SetTrigger("Jump");
+            _velocity.y = Mathf.Sqrt(_jumpHeight * -3.0f * _gravity);
         }
     }
 
@@ -201,11 +171,11 @@ public class Player : Actor
             bool cantStandUp = Physics.Raycast(transform.position, Vector3.up, 1.5f, _groundMask);
             if (!cantStandUp)
             {
+                _animator.SetBool("IsProne", _isProne);
                 _characterController.height = 1.0f;
                 _characterController.center = new Vector3(0.0f, _characterController.center.y, 0.0f);
                 _moveSpeed = _walkSpeed;
                 _isProne = false;
-                _animator.SetBool("IsProne", _isProne);
             }
         }
     }
@@ -308,34 +278,6 @@ public class Player : Actor
             _animator.SetBool("IsRunning", false);
             _animator.SetFloat("VelocityX", 0.0f);
             _animator.SetFloat("VelocityY", 0.0f);
-        }
-    }
-
-    public void Shoot()
-    {
-        if (_isCurrentArmRight && !IsHolster)
-        {
-            if (!_isReloading)
-            {
-                _animator.SetBool("IsChamberEmpty", _revolver.IsChamberEmpty());
-                if (CanShoot)
-                {
-                    //CanShoot = false;
-                    _animator.SetTrigger("Shoot");
-                    _revolver.Shoot();
-                }
-            }
-        }
-        else if (!_isCurrentArmRight)
-        {
-            if (CanShoot)
-            {
-                _isCurrentArmRight = true;
-                GameObject pickableObject = _leftHand.GetChild(0).gameObject;
-                pickableObject.GetComponent<Rigidbody>().isKinematic = false;
-                pickableObject.transform.SetParent(null);
-                pickableObject.GetComponent<Rigidbody>().AddForce(_camera.transform.forward * 500.0f);
-            }
         }
     }
 
@@ -451,12 +393,6 @@ public class Player : Actor
         //        _hasRaisedRightFoot = true;
         //    }
         //}
-    }
-
-    public void InsertRound(GameObject round)
-    {
-        //TO DO Animation
-        _revolver.AddRound(round);
     }
 
     public void SwitchWalkMode()

@@ -3,7 +3,6 @@
 public class PlayerAnimationEvents : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    [SerializeField] private Revolver _revolver;
     private Animator _animator;
 
     void Awake()
@@ -29,11 +28,6 @@ public class PlayerAnimationEvents : MonoBehaviour
     public void DisableMovement()
     {
         _player.LockMovement = true;
-    }
-
-    public void EmptyCylinderEvent()
-    {
-        _revolver.EmptyCylinder();
     }
 
     public void EnableSlowdown()
