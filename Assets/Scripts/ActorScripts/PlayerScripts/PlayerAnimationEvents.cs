@@ -3,12 +3,8 @@
 public class PlayerAnimationEvents : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    private Animator _animator;
-
-    void Awake()
-    {
-        _animator = GetComponent<Animator>();
-    }
+    [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private Animator _animator;
 
     public void EnableShoot()
     {
@@ -18,6 +14,21 @@ public class PlayerAnimationEvents : MonoBehaviour
     public void DisableShoot()
     {
         _player.CanShoot = false;
+    }
+
+    public void EnableAnyState()
+    {
+        _animator.SetBool("StopAnyState", false);
+    }
+
+    public void DisableAnyState()
+    {
+        _animator.SetBool("StopAnyState", true);
+    }
+
+    public void EnableJump()
+    {
+        _playerMovement.CanJump = true;
     }
 
     public void EnableMovement()

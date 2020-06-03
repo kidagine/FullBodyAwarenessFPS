@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private float _xAxis;
     private float _yAxis;
     private readonly int _gravity = -20;
-    private readonly float _jumpHeight = 1.0f;
+    private readonly float _jumpHeight = 0.35f;
     private float _walkSpeed = 2f;
     private readonly float _crouchSpeed = 1.7f;
     private readonly float _proneSpeed = 1.0f;
@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     public bool IsGrounded { get; private set; }
     public bool LockMovement { get; set; }
     public bool IsRunning { get; private set; }
+    public bool CanJump { get; set; } = true;
     public Vector3 Move { get; private set; }
     public Vector2 MovementInput { get; set; }
     public RaycastHit Hit { get; set; }
@@ -46,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     void LateUpdate()
     {
-        //EdgeFalling();
+        EdgeFalling();
     }
 
 
@@ -85,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
     private void CheckGrounded()
     {
         Vector3 checkGroundPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z - 0.1f);
-        IsGrounded = Physics.Raycast(checkGroundPosition, Vector3.down, out RaycastHit hit, 0.8f, _groundMask);
+        IsGrounded = Physics.Raycast(checkGroundPosition, Vector3.down, out RaycastHit hit, 0.6f, _groundMask);
         if (IsGrounded && _velocity.y < 0)
         {
             Hit = hit;
@@ -129,8 +130,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (IsGrounded)
+        if (IsGrounded && CanJump)
         {
+            CanJump = false;
             _animator.SetTrigger("Jump");
             _velocity.y = Mathf.Sqrt(_jumpHeight * -3.0f * _gravity);
         }
