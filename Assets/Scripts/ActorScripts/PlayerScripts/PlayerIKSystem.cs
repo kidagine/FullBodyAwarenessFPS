@@ -18,15 +18,29 @@ public class PlayerIKSystem : MonoBehaviour
     private float _lastPelvisPositionY;
     private float _lastRightFootPositionY;
     private float _lastLeftFootPositionY;
-
+    private int _foot;
 
     private void FixedUpdate()
     {
         _rightFootPosition = GetAdjustedFootTarget(HumanBodyBones.RightFoot);
         _leftFootPosition = GetAdjustedFootTarget(HumanBodyBones.LeftFoot);
 
-        FootPositionSolver(_rightFootPosition, ref _rightFootIKPosition, ref _rightFootIKRotation);
-        FootPositionSolver(_leftFootPosition, ref _leftFootIKPosition, ref _leftFootIKRotation);
+        bool isRightFootOnGround = false;
+        bool isLeftFootOnGround = false;
+        if (!_playerMovement.Stop)
+        {
+            isRightFootOnGround = FootPositionSolver(_rightFootPosition, ref _rightFootIKPosition, ref _rightFootIKRotation);
+            isLeftFootOnGround = FootPositionSolver(_leftFootPosition, ref _leftFootIKPosition, ref _leftFootIKRotation);
+        }
+
+        if (isRightFootOnGround || isLeftFootOnGround)
+        {
+            _playerMovement.IsGrounded = true;
+        }
+        else
+        {
+            _playerMovement.IsGrounded = false;
+        }
     }
 
     private Vector3 GetAdjustedFootTarget(HumanBodyBones foot)
@@ -36,35 +50,40 @@ public class PlayerIKSystem : MonoBehaviour
         return footPosition;
     }
 
-    private void FootPositionSolver(Vector3 footPosition, ref Vector3 footIKPosition, ref Quaternion footIKRotations)
+    private bool FootPositionSolver(Vector3 footPosition, ref Vector3 footIKPosition, ref Quaternion footIKRotations)
     {
-        if (_playerMovement.IsGrounded)
+        bool isFootOnGround;
+        if (Physics.Raycast(footPosition, Vector3.down, out RaycastHit hit, _raycastDownDistance + _groundRaycast, _environmentLayer))
         {
-            if (Physics.Raycast(footPosition, Vector3.down, out RaycastHit hit, _raycastDownDistance + _groundRaycast, _environmentLayer))
-            {
-                footIKPosition = footPosition;
-                footIKPosition.y = hit.point.y;
-                footIKRotations = Quaternion.FromToRotation(Vector3.up, hit.normal) * transform.rotation;
-            }
-            else
-            {
-                footIKPosition = Vector3.zero;
-            }
+            footIKPosition = footPosition;
+            footIKPosition.y = hit.point.y;
+            footIKRotations = Quaternion.FromToRotation(Vector3.up, hit.normal) * transform.rotation;
+            isFootOnGround = true;
         }
+        else
+        {
+            footIKPosition = Vector3.zero;
+            isFootOnGround = false;
+        }
+        return isFootOnGround;
     }
 
     private void OnAnimatorIK(int layerIndex)
     {
         if (layerIndex == 0)
         {
-            AdjustPelvisHeight();
-            MoveFootToIKPoint(AvatarIKGoal.RightFoot, _rightFootIKPosition, _rightFootIKRotation, ref _lastRightFootPositionY);
-            MoveFootToIKPoint(AvatarIKGoal.LeftFoot, _leftFootIKPosition, _leftFootIKRotation, ref _lastLeftFootPositionY);
+            if (!_playerMovement.Stop && _playerMovement.IsGrounded)
+            {
+                AdjustPelvisHeight();
+                MoveFootToIKPoint(AvatarIKGoal.RightFoot, _rightFootIKPosition, _rightFootIKRotation, ref _lastRightFootPositionY);
+                MoveFootToIKPoint(AvatarIKGoal.LeftFoot, _leftFootIKPosition, _leftFootIKRotation, ref _lastLeftFootPositionY);
 
-            _animator.SetIKPositionWeight(AvatarIKGoal.RightFoot, 1.0f);
-            _animator.SetIKPositionWeight(AvatarIKGoal.LeftFoot, 1.0f);
-            _animator.SetIKRotationWeight(AvatarIKGoal.RightFoot, _animator.GetFloat("RightFootCurve"));
-            _animator.SetIKRotationWeight(AvatarIKGoal.LeftFoot, _animator.GetFloat("LeftFootCurve"));
+                _animator.SetIKPositionWeight(AvatarIKGoal.RightFoot, 1.0f);
+                _animator.SetIKPositionWeight(AvatarIKGoal.LeftFoot, 1.0f);
+                _animator.SetIKRotationWeight(AvatarIKGoal.RightFoot, _animator.GetFloat("RightFootCurve"));
+                _animator.SetIKRotationWeight(AvatarIKGoal.LeftFoot, _animator.GetFloat("LeftFootCurve"));
+            }
+
         }
     }
 

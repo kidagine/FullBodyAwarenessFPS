@@ -1,5 +1,0 @@
-Notice of Exception and Use Restriction
-
-The Asset accompanying this Notice contains a 'Restricted Asset' under the terms of the Asset Store Terms of Service and EULA (currently at https://unity3d.com/legal/as_terms) and its successor terms. The Restricted Asset is the entire folder [Assets\EmbeddedPackages\com.unity.demoteam.digital-human.sample] and everything contained therein, including meshes, textures and other files, which together comprise the Gawain character sample asset.  As such, the license granted for the Restricted Asset is subject to termination by Unity in its sole discretion at any time, and use of the Restricted Asset is limited to personal and non-commercial use only (you can't use the Restricted Asset to make money, either directly or indirectly); no other use is licensed or permitted. Please see the terms for details.  You agree to credit Unity wherever you use the Asset in the following fashion:
-
-"The Heretic" character art courtesy of Unity Technologies ApS © 2020

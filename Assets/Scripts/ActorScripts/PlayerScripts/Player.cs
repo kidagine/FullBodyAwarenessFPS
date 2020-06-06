@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("ARG");
         Movement();
         CheckGrounded();
         Gravity();
@@ -98,15 +99,19 @@ public class Player : MonoBehaviour
 
     private void CheckGrounded()
     {
+        Debug.Log("checking");
+
         Vector3 checkGroundPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z - 0.1f);
         IsGrounded = Physics.Raycast(checkGroundPosition, Vector3.down, 0.6f, _groundMask);
         if (IsGrounded && _velocity.y < 0)
         {
+            Debug.Log("grounded");
             _velocity.y = -2.0f;
             _animator.SetBool("IsFalling", false);
         }
         else
         {
+            Debug.Log("not grounded");
             _animator.SetBool("IsFalling", true);
         }
     }

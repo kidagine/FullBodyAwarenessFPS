@@ -67,19 +67,19 @@ public class IKControler : MonoBehaviour
     {
         if (_isIKActive)
         {
-            if (!_playerScript.IsHolster)
-            {
-                LookAtUnHolsterMode(layerIndex);
-            }
-            else
-            {
-                LookAtHolsterMode(layerIndex);
-            }
+            //if (!_playerScript.IsHolster)
+            //{
+            //    LookAtUnHolsterMode(layerIndex);
+            //}
+            //else
+            //{
+            //    LookAtHolsterMode(layerIndex);
+            //}
 
-            if (_playerScript.HasPickable)
-            {
-                HoldPickable(layerIndex);
-            }
+            //if (_playerScript.HasPickable)
+            //{
+            //    HoldPickable(layerIndex);
+            //}
         }
     }
 

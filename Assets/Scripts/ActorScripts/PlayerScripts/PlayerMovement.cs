@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _rightFoot;
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private GameObject _camera;
+    [SerializeField] private PlayerIKSystem _playerIKSystem;
     [SerializeField] private LayerMask _groundMask;
     private Vector3 _velocity;
     private float _xAxis;
@@ -29,7 +30,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _lastPosition;
 
     public bool HasPickable { get; private set; }
-    public bool IsGrounded { get; private set; }
+    public bool IsGrounded { get; set; }
+    public bool Stop { get; set; } 
     public bool LockMovement { get; set; }
     public bool IsRunning { get; private set; }
     public bool CanJump { get; set; } = true;
@@ -85,13 +87,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckGrounded()
     {
-        Vector3 checkGround = new Vector3(transform.position.x, transform.position.y - (_characterController.height / 2) + _characterController.center.y, transform.position.z);
-        IsGrounded = Physics.Raycast(checkGround, Vector3.down, out RaycastHit hit, 0.5f, _groundMask);
+        if (_velocity.y > 0)
+        {
+            Stop = true;
+        }
+        else
+        {
+            Stop = false;
+        }
         if (IsGrounded && _velocity.y < 0)
         {
             _animator.SetBool("IsFalling", false);
-            Hit = hit;
             _velocity.y = -2.0f;
+            Stop = false;
         }
         else
         {
