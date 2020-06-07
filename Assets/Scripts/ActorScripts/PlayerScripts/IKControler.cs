@@ -59,7 +59,7 @@ public class IKControler : MonoBehaviour
         }
         else
         {
-            chest.LookAt(staticTarget);
+            chest.LookAt(null);
         }
     }
 

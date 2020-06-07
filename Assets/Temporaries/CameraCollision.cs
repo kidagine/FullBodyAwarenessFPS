@@ -9,6 +9,7 @@ public class CameraCollision : MonoBehaviour
 	private Vector3 dollyDirection;
 	public Vector3 dollyDirectionAdjusted;
 	public float distance;
+	public LayerMask playerIgnore;
 
 	void Awake()
 	{
@@ -21,7 +22,7 @@ public class CameraCollision : MonoBehaviour
 		Vector3 desiredCameraPosition = transform.parent.TransformPoint(dollyDirection * maximumDistance);
 		RaycastHit hit;
 
-		if (Physics.Linecast(transform.parent.position, desiredCameraPosition, out hit))
+		if (Physics.Linecast(transform.parent.position, desiredCameraPosition, out hit, ~playerIgnore))
 		{
 			distance = Mathf.Clamp((hit.distance * 0.9f), minimumDistance, maximumDistance);
 		}
