@@ -1,0 +1,90 @@
+{
+    "name": "DebugInputActions",
+    "maps": [
+        {
+            "name": "DebugControls",
+            "id": "81cae4ab-a618-4a10-a1ea-f2025f855f68",
+            "actions": [
+                {
+                    "name": "SetDebug",
+                    "type": "Button",
+                    "id": "e9dbc2d6-c80a-4cdd-af92-f3500435e6f3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SlowdownTime",
+                    "type": "Button",
+                    "id": "b6d12703-47b0-4d10-b602-01f550ad61fa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RestartScene",
+                    "type": "Button",
+                    "id": "83efc09d-8408-4416-b3ad-91f1dc79d81c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "DebugCamera",
+                    "type": "Button",
+                    "id": "5d733628-ad87-444a-9a92-489cb145e895",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "12f0e6c9-93cf-482c-b19f-9c122c60cf43",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SlowdownTime",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1dec75a7-7435-4da9-b76f-97b14482917d",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RestartScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "107dcf2c-b2cd-4a20-94e6-dd1ce2a5089f",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DebugCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bffdac99-a0ff-423a-9196-a69ae35571f9",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SetDebug",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
