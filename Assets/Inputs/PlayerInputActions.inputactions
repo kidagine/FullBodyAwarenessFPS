@@ -22,6 +22,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "SwapCamera",
+                    "type": "Button",
+                    "id": "3b663e53-8fcf-4192-987c-4702158e7f9d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "a9151a73-fe94-4c36-a49e-1b8f8aee1ed4",
@@ -480,6 +488,28 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "SwitchWalk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "56c7e596-1ea2-4914-9add-f9716ae86c2a",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SwapCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb852079-f676-4ccf-ba38-2e6c29728320",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "SwapCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

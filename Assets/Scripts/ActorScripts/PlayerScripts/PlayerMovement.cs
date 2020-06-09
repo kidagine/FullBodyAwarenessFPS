@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
         {
             CanJump = false;
             _animator.SetTrigger("Jump");
-            _velocity.y = Mathf.Sqrt(_jumpHeight * -3.0f * _gravity);
+            _velocity.y = Mathf.Sqrt(_jumpHeight * -1.0f * _gravity);
         }
     }
 

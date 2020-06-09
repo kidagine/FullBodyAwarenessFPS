@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerCamera : MonoBehaviour
+public class PlayerFPSCamera : MonoBehaviour, IPlayerCamera
 {
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private GameObject _player;
@@ -8,12 +8,12 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] private Transform _playerEyes;
     [SerializeField] private Transform _playerCameraPoint;
     [SerializeField] private Transform _playerPivot;
-    [Range(1.0f, 10f)] private readonly float _mouseSensitivity = 10.0f;
+    [Range(1.0f, 10f)] private readonly float _cameraSensitivity = 10.0f;
     private Vector3 rotMoveables;
     private float _xRotation;
     private readonly int _maximuDownwardsYRotation = 85;
     private readonly int _maximumUpwardsYRotation = -90;
-    public Vector2 CameraInput { get; set; }
+    private Vector2 _cameraInput;
 
 
     void Start()
@@ -28,19 +28,20 @@ public class PlayerCamera : MonoBehaviour
         _playerCameraPoint.position = _playerHead.position;
     }
 
-    private void LateUpdate()
+    public void SetCameraInput(Vector2 cameraInput)
     {
+        _cameraInput = cameraInput;
     }
 
     private void RotateCamera()
     {
         if (!_playerMovement.LockMovement)
         {
-            float mouseX = CameraInput.x * Time.deltaTime;
-            float mouseY = CameraInput.y * Time.deltaTime;
+            float mouseX = _cameraInput.x * Time.deltaTime;
+            float mouseY = _cameraInput.y * Time.deltaTime;
 
-            float rotAmountX = mouseX * _mouseSensitivity;
-            float rotAmountY = mouseY * _mouseSensitivity;
+            float rotAmountX = mouseX * _cameraSensitivity;
+            float rotAmountY = mouseY * _cameraSensitivity;
 
             _xRotation -= rotAmountY;
 

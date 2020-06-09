@@ -52,7 +52,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("ARG");
         Movement();
         CheckGrounded();
         Gravity();

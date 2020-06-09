@@ -32,23 +32,6 @@ public class IKControler : MonoBehaviour
         chest = _animator.GetBoneTransform(HumanBodyBones.Head);
     }
 
-    private void Update()
-    {
-        //Temp
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (_fpsCamera.activeSelf)
-            {
-                _fpsCamera.SetActive(false);
-                _thirdPersonCamera.SetActive(true);
-            }
-            else
-            {
-                _fpsCamera.SetActive(true);
-                _thirdPersonCamera.SetActive(false);
-            }
-        }
-    }
 
     private void LateUpdate()
     {
