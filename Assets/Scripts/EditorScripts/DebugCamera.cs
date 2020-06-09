@@ -75,85 +75,71 @@ namespace UnityTemplateProjects
         [Tooltip("Time it takes to interpolate camera rotation 99% of the way to the target."), Range(0.001f, 1f)]
         public float rotationLerpTime = 0.01f;
 
-        [Tooltip("Whether or not to invert our Y axis for mouse input to rotation.")]
-        public bool invertY = false;
-
         void OnEnable()
         {
             m_TargetCameraState.SetFromTransform(transform);
             m_InterpolatingCameraState.SetFromTransform(transform);
         }
 
-        Vector3 GetInputTranslationDirection()
+        public void Forward()
         {
-            Vector3 direction = new Vector3();
-            if (Input.GetKey(KeyCode.W))
-            {
-                direction += Vector3.forward;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                direction += Vector3.back;
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                direction += Vector3.left;
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                direction += Vector3.right;
-            }
-            if (Input.GetKey(KeyCode.Q))
-            {
-                direction += Vector3.down;
-            }
-            if (Input.GetKey(KeyCode.E))
-            {
-                direction += Vector3.up;
-            }
-            return direction;
+            m_TargetCameraState.Translate(Vector3.forward);
+
         }
-        
+
+        public void Backward()
+        {
+            m_TargetCameraState.Translate(Vector3.back);
+        }
+
+        public void Left()
+        {
+            m_TargetCameraState.Translate(Vector3.left);
+        }
+
+        public void Right()
+        {
+            m_TargetCameraState.Translate(Vector3.right);
+        }
+
+        public void Up()
+        {
+            m_TargetCameraState.Translate(Vector3.up);
+        }
+
+        public void Down()
+        {
+            m_TargetCameraState.Translate(Vector3.down);
+        }
+
+        private Vector2 _cameraMovement;
+        private Vector2 _cameraRotation;
+        private bool _isCameraSpeedEnabled;
+        public void SetCameraRotation(Vector2 cameraRotation)
+        {
+            _cameraRotation = cameraRotation;
+        }
+        public void SetCameraMovement(Vector2 cameraMovement)
+        {
+            _cameraMovement = cameraMovement;
+        }
+        public void SetCameraSpeedEnabled(bool state)
+        {
+            _isCameraSpeedEnabled = state;
+        }
+
         void Update()
         {
             Vector3 translation = Vector3.zero;
 
 #if ENABLE_LEGACY_INPUT_MANAGER
 
-            // Exit Sample  
-            if (Input.GetKey(KeyCode.Escape))
-            {
-                Application.Quit();
-				#if UNITY_EDITOR
-				UnityEditor.EditorApplication.isPlaying = false; 
-				#endif
-            }
-            // Hide and lock cursor when right mouse button pressed
-            if (Input.GetMouseButtonDown(1))
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+            var mouseMovement = _cameraRotation;
 
-            // Unlock and show cursor when right mouse button released
-            if (Input.GetMouseButtonUp(1))
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
+            var mouseSensitivityFactor = mouseSensitivityCurve.Evaluate(mouseMovement.magnitude);
 
-            // Rotation
-            if (Input.GetMouseButton(1))
-            {
-                var mouseMovement = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y") * (invertY ? 1 : -1));
-                
-                var mouseSensitivityFactor = mouseSensitivityCurve.Evaluate(mouseMovement.magnitude);
-
-                m_TargetCameraState.yaw += mouseMovement.x * mouseSensitivityFactor;
-                m_TargetCameraState.pitch += mouseMovement.y * mouseSensitivityFactor;
-            }
-            
-            // Translation
-            translation = GetInputTranslationDirection() * Time.deltaTime;
+            m_TargetCameraState.yaw += mouseMovement.x * mouseSensitivityFactor;
+            m_TargetCameraState.pitch += mouseMovement.y * mouseSensitivityFactor;
 
             // Speed up movement when shift key held
             if (Input.GetKey(KeyCode.LeftShift))
@@ -178,6 +164,12 @@ namespace UnityTemplateProjects
             m_InterpolatingCameraState.LerpTowards(m_TargetCameraState, positionLerpPct, rotationLerpPct);
 
             m_InterpolatingCameraState.UpdateTransform(transform);
+
+            if (_isCameraSpeedEnabled)
+                m_TargetCameraState.Translate(new Vector3(_cameraMovement.x * 4, 0.0f, _cameraMovement.y * 4));
+            else
+                m_TargetCameraState.Translate(new Vector3(_cameraMovement.x, 0.0f, _cameraMovement.y));
+
         }
     }
 

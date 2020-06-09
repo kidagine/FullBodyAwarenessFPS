@@ -2,7 +2,8 @@
 
 public class PlayerThirdPersonCamera : MonoBehaviour, IPlayerCamera
 {
-
+	[SerializeField] private Transform _player;
+	[SerializeField] private PlayerMovement _playerMovement;
 	public float minimumDistance = 1.0f;
 	public float maximumDistance = 4.0f;
 	public Transform pivot;
@@ -11,10 +12,10 @@ public class PlayerThirdPersonCamera : MonoBehaviour, IPlayerCamera
 	public Vector3 dollyDirectionAdjusted;
 	public float distance;
 	public LayerMask playerIgnore;
-	public float cameraMoveSpeed = 120.0f;
+	public float cameraMoveSpeed = 5.0f;
 	public GameObject cameraFollowObject;
 	public float clampAngle = 80.0f;
-	public float inputSensitivity = 150.0f;
+	public float inputSensitivity = 22.0f;
 	public float mouseX;
 	public float mouseY;
 	public float finalInputX;
@@ -44,8 +45,8 @@ public class PlayerThirdPersonCamera : MonoBehaviour, IPlayerCamera
 
 	void Update()
 	{
-		mouseX = _cameraInput.x;
-		mouseY = _cameraInput.y;
+		mouseX = _cameraInput.x / 4;
+		mouseY = -_cameraInput.y / 4;
 		finalInputX = 0 + mouseX;
 		finalInputZ = 0 + mouseY;
 
@@ -69,13 +70,18 @@ public class PlayerThirdPersonCamera : MonoBehaviour, IPlayerCamera
 			distance = maximumDistance;
 		}
 		transform.localPosition = Vector3.Lerp(transform.localPosition, dollyDirection * distance, Time.deltaTime * smooth);
+
+		var lookPos = _player.position - transform.position;
+		lookPos.y = 0;
+		var rotation = Quaternion.LookRotation(lookPos);
+		_player.transform.localRotation = Quaternion.Slerp(_player.transform.localRotation, rotation, Time.deltaTime * _playerMovement.Move.magnitude * 30.0f);
+
 	}
 
 	void LateUpdate()
 	{
 		CameraUpdater();
 	}
-
 	private void CameraUpdater()
 	{
 		Transform target = cameraFollowObject.transform;
