@@ -28,9 +28,9 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""SlowdownTime"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""b6d12703-47b0-4d10-b602-01f550ad61fa"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -73,6 +73,14 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": ""InvertVector2(invertX=false),ScaleVector2(x=0.75,y=0.75),StickDeadzone"",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""NextOption"",
+                    ""type"": ""Button"",
+                    ""id"": ""2588efa7-e73b-4951-b816-0ce07423cf1b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""InvertVector2(invertX=false),ScaleVector2(x=0.75,y=0.75),StickDeadzone"",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -88,37 +96,15 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Select&Left"",
-                    ""id"": ""876bbf3f-c1d7-4ca5-b41b-b34df9c02ca2"",
-                    ""path"": ""ButtonWithOneModifier"",
+                    ""name"": """",
+                    ""id"": ""0204b624-774e-4ec6-976c-cb0edc577b4e"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""SlowdownTime"",
-                    ""isComposite"": true,
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""8b4e336f-8e85-4e1d-bffd-681b4741cd45"",
-                    ""path"": ""<Gamepad>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SlowdownTime"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""button"",
-                    ""id"": ""27a57552-b5b4-44f2-a627-f12b0bdae2c3"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SlowdownTime"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -132,37 +118,15 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Select&Right"",
-                    ""id"": ""b3da0414-d3ed-473b-bd4b-9fa049dd4bf6"",
-                    ""path"": ""ButtonWithOneModifier"",
+                    ""name"": """",
+                    ""id"": ""c31538e5-3217-4995-90e0-d113c716fa48"",
+                    ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""RestartScene"",
-                    ""isComposite"": true,
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""a8b34b6a-fae1-4116-9d84-c4441a83c75e"",
-                    ""path"": ""<Gamepad>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RestartScene"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""button"",
-                    ""id"": ""8d785a8e-940a-43e8-b57d-03210616ab6b"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RestartScene"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -176,37 +140,15 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Select&Up"",
-                    ""id"": ""052a951e-5c82-4074-a462-eb9822d236be"",
-                    ""path"": ""ButtonWithOneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""DebugCamera"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""afe913cb-d5cf-4e09-a7d9-10556d33fe5d"",
-                    ""path"": ""<Gamepad>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""DebugCamera"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""button"",
-                    ""id"": ""0eb6ebb4-a87c-4905-a300-5ac419db2b17"",
+                    ""name"": """",
+                    ""id"": ""9e7ab92b-7660-4a40-81be-421f77bd92b3"",
                     ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""DebugCamera"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -220,37 +162,15 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Select&Down"",
-                    ""id"": ""b64501be-0733-4b3e-a66f-659e3ae06e1a"",
-                    ""path"": ""ButtonWithOneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SetDebug"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""db5ec5f9-9064-4895-8313-7ef70cf6f7ef"",
-                    ""path"": ""<Gamepad>/select"",
+                    ""name"": """",
+                    ""id"": ""ab1a5e52-61d9-4fe4-9208-6244e4a7cf59"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""SetDebug"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""button"",
-                    ""id"": ""07fcc88c-6309-48b2-8012-92da0959fb74"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SetDebug"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -416,6 +336,28 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""action"": ""SpeedMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76230a8c-24d9-49cd-a281-7dfc4d37d676"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""NextOption"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ff285e1-0a10-4ea0-87fc-83fd5170075d"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""NextOption"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -459,6 +401,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
         m_DebugControls_CameraMovement = m_DebugControls.FindAction("CameraMovement", throwIfNotFound: true);
         m_DebugControls_CameraRotation = m_DebugControls.FindAction("CameraRotation", throwIfNotFound: true);
         m_DebugControls_SpeedMovement = m_DebugControls.FindAction("SpeedMovement", throwIfNotFound: true);
+        m_DebugControls_NextOption = m_DebugControls.FindAction("NextOption", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -515,6 +458,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_DebugControls_CameraMovement;
     private readonly InputAction m_DebugControls_CameraRotation;
     private readonly InputAction m_DebugControls_SpeedMovement;
+    private readonly InputAction m_DebugControls_NextOption;
     public struct DebugControlsActions
     {
         private @DebugInputActions m_Wrapper;
@@ -526,6 +470,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
         public InputAction @CameraMovement => m_Wrapper.m_DebugControls_CameraMovement;
         public InputAction @CameraRotation => m_Wrapper.m_DebugControls_CameraRotation;
         public InputAction @SpeedMovement => m_Wrapper.m_DebugControls_SpeedMovement;
+        public InputAction @NextOption => m_Wrapper.m_DebugControls_NextOption;
         public InputActionMap Get() { return m_Wrapper.m_DebugControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -556,6 +501,9 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                 @SpeedMovement.started -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnSpeedMovement;
                 @SpeedMovement.performed -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnSpeedMovement;
                 @SpeedMovement.canceled -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnSpeedMovement;
+                @NextOption.started -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnNextOption;
+                @NextOption.performed -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnNextOption;
+                @NextOption.canceled -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnNextOption;
             }
             m_Wrapper.m_DebugControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -581,6 +529,9 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                 @SpeedMovement.started += instance.OnSpeedMovement;
                 @SpeedMovement.performed += instance.OnSpeedMovement;
                 @SpeedMovement.canceled += instance.OnSpeedMovement;
+                @NextOption.started += instance.OnNextOption;
+                @NextOption.performed += instance.OnNextOption;
+                @NextOption.canceled += instance.OnNextOption;
             }
         }
     }
@@ -612,5 +563,6 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
         void OnCameraMovement(InputAction.CallbackContext context);
         void OnCameraRotation(InputAction.CallbackContext context);
         void OnSpeedMovement(InputAction.CallbackContext context);
+        void OnNextOption(InputAction.CallbackContext context);
     }
 }

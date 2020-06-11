@@ -3,53 +3,62 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameDebugger : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _slowdownValueText = default;
     [SerializeField] private TextMeshProUGUI _displayCameraText = default;
+    [SerializeField] private Slider _slowdownTimeSlider = default;
     [SerializeField] private GameObject _gameDebuggerCanvas = default;
+    [SerializeField] private GameObject _debugGeneralUI = default;
+    [SerializeField] private GameObject _debugVisualsUI = default;
+    [SerializeField] private GameObject _debugCameraUI = default;
     [SerializeField] private GameObject _debugCamera = default;
     [SerializeField] private GameObject _displayCamera = default;
     [SerializeField] private GameObject _playerCamera = default;
+    [SerializeField] private PlayerInputSystem _playerInputSystem = default;
     private readonly string _debugCameraText = "Debug Camera";
     private readonly string _gameCameraText = "Game Camera";
     private Coroutine _showDisplayCameraCoroutine;
-    private bool _isDebuggerActive;
 
 
-    public void SetDebugger()
+    void Start()
     {
-        _isDebuggerActive = !_isDebuggerActive;
-        if (_isDebuggerActive)
+        if (_gameDebuggerCanvas.activeSelf)
         {
-            _gameDebuggerCanvas.SetActive(true);
+            _playerInputSystem.enabled = false;
         }
         else
         {
-            _gameDebuggerCanvas.SetActive(false);
+            _playerInputSystem.enabled = true;
         }
     }
 
-    public void SlowdownTime()
+    public void SetDebugger()
     {
-        if (_isDebuggerActive)
+        if (_gameDebuggerCanvas.activeSelf)
         {
-            if (Time.timeScale <= 0.1f)
-            {
-                Time.timeScale = 1.0f;
-            }
-            else
-            {
-                Time.timeScale -= 0.1f;
-            }
-            _slowdownValueText.text = Time.timeScale.ToString("F1");
+            _playerInputSystem.enabled = true;
+            _gameDebuggerCanvas.SetActive(false);
+        }
+        else
+        {
+            _playerInputSystem.enabled = false;
+            _gameDebuggerCanvas.SetActive(true);
+        }
+    }
+
+    public void SlowdownTime(Vector2 slowdownTimeInput)
+    {
+        if (_gameDebuggerCanvas.activeSelf)
+        {
+            _slowdownTimeSlider.value = slowdownTimeInput.x;
         }
     }
 
     public void RestartScene()
     {
-        if (_isDebuggerActive)
+        if (_gameDebuggerCanvas.activeSelf)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
@@ -61,16 +70,22 @@ public class GameDebugger : MonoBehaviour
             StopCoroutine(_showDisplayCameraCoroutine);
 
         _showDisplayCameraCoroutine = StartCoroutine(ShowDisplayCameraCoroutine());
-        if (_isDebuggerActive)
+        if (_gameDebuggerCanvas.activeSelf)
         {
             if (_debugCamera.activeSelf)
             {
+                _debugGeneralUI.SetActive(true);
+                _debugCameraUI.SetActive(false);
+
                 _playerCamera.SetActive(true);
                 _debugCamera.SetActive(false);
                 _displayCameraText.text = _gameCameraText;
             }
             else
             {
+                _debugGeneralUI.SetActive(false);
+                _debugCameraUI.SetActive(true);
+
                 _playerCamera.SetActive(false);
                 _debugCamera.SetActive(true);
                 _displayCameraText.text = _debugCameraText;
@@ -84,6 +99,20 @@ public class GameDebugger : MonoBehaviour
         _displayCamera.SetActive(true);
         yield return new WaitForSeconds(2.0f);
         _displayCamera.SetActive(false);
+    }
+
+    public void NextOption()
+    {
+        if (_debugGeneralUI.activeSelf)
+        {
+            _debugGeneralUI.SetActive(false);
+            _debugVisualsUI.SetActive(true);
+        }
+        else if (_debugVisualsUI.activeSelf)
+        {
+            _debugGeneralUI.SetActive(true);
+            _debugVisualsUI.SetActive(false);
+        }
     }
 }
 #endif

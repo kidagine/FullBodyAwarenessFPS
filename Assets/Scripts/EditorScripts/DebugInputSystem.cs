@@ -16,6 +16,7 @@ public class DebugInputSystem : MonoBehaviour
         _debugInputActions.DebugControls.DebugCamera.performed += DebugCamera;
         _debugInputActions.DebugControls.SlowdownTime.performed += SlowdownTime;
         _debugInputActions.DebugControls.RestartScene.performed += RestartScene;
+        _debugInputActions.DebugControls.NextOption.performed += NextOption;
         _debugInputActions.DebugControls.CameraMovement.performed += SetCameraMovement;
         _debugInputActions.DebugControls.CameraRotation.performed += SetCameraRotation;
         _debugInputActions.DebugControls.SpeedMovement.performed += EnableCameraSpeed;
@@ -33,12 +34,25 @@ public class DebugInputSystem : MonoBehaviour
     }
     public void SlowdownTime(InputAction.CallbackContext context)
     {
-        _gameDebugger.SlowdownTime();
+        if (context.performed)
+        {
+            _gameDebugger.SlowdownTime(context.ReadValue<Vector2>());
+            Debug.Log(context.ReadValue<Vector2>());
+        }
+        if (context.canceled)
+        {
+            Debug.Log("stop");
+        }
     }
 
     public void RestartScene(InputAction.CallbackContext context)
     {
         _gameDebugger.RestartScene();
+    }
+
+    public void NextOption(InputAction.CallbackContext context)
+    {
+        _gameDebugger.NextOption();
     }
 
     public void SetCameraMovement(InputAction.CallbackContext context)

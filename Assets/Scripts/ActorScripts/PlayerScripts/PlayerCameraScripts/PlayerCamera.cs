@@ -44,14 +44,4 @@ public class PlayerCamera : MonoBehaviour
     {
         return _activePlayerCamera;
     }
-
-    void OnEnable()
-    {
-        _playerInputSystem.enabled = true;
-    }
-
-    void OnDisable()
-    {
-        _playerInputSystem.enabled = false;
-    }
 }
