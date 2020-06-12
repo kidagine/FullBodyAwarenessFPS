@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Inputs/DebugInputActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Inputs/DebugInputs/DebugInputActions.inputactions'
 
 using System;
 using System.Collections;
@@ -21,6 +21,14 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": ""SetDebug"",
                     ""type"": ""Button"",
+                    ""id"": ""e7a3b25f-f3a4-4f2e-95e6-912f3e96977a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""InvertVector2(invertX=false),ScaleVector2(x=0.75,y=0.75),StickDeadzone"",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ExitMenu"",
+                    ""type"": ""Button"",
                     ""id"": ""e9dbc2d6-c80a-4cdd-af92-f3500435e6f3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -28,7 +36,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""SlowdownTime"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""b6d12703-47b0-4d10-b602-01f550ad61fa"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -78,6 +86,30 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""name"": ""NextOption"",
                     ""type"": ""Button"",
                     ""id"": ""2588efa7-e73b-4951-b816-0ce07423cf1b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""InvertVector2(invertX=false),ScaleVector2(x=0.75,y=0.75),StickDeadzone"",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MoveLights"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""4af86a5d-9712-41e2-a640-d5ec37e3f33f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""InvertVector2(invertX=false),ScaleVector2(x=0.75,y=0.75),StickDeadzone"",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SetLights"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1982b3b-9c25-47a8-97be-f936284bb594"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""InvertVector2(invertX=false),ScaleVector2(x=0.75,y=0.75),StickDeadzone"",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""138d53b6-8397-4c48-9581-21ec558298e3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": ""InvertVector2(invertX=false),ScaleVector2(x=0.75,y=0.75),StickDeadzone"",
                     ""interactions"": """"
@@ -143,7 +175,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""9e7ab92b-7660-4a40-81be-421f77bd92b3"",
                     ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""DebugCamera"",
@@ -152,23 +184,23 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bffdac99-a0ff-423a-9196-a69ae35571f9"",
-                    ""path"": ""<Keyboard>/v"",
-                    ""interactions"": """",
+                    ""id"": ""ab1a5e52-61d9-4fe4-9208-6244e4a7cf59"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""SetDebug"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ExitMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ab1a5e52-61d9-4fe4-9208-6244e4a7cf59"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
+                    ""id"": ""bffdac99-a0ff-423a-9196-a69ae35571f9"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""SetDebug"",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ExitMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -358,6 +390,61 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""action"": ""NextOption"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d1a92618-07f6-485f-a2a7-ed92b2bf4651"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MoveLights"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37a4c5bc-10f9-499c-bfc1-da354a9883b4"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveLights"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a55e5e0d-bfd6-4b6d-bdf7-506cc8ec70e3"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SetLights"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4bdb9d4b-14fc-474f-9b34-88b48768238a"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ed0350a-4eaf-46c5-88e4-43e6228b19fb"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SetDebug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -395,6 +482,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
         // DebugControls
         m_DebugControls = asset.FindActionMap("DebugControls", throwIfNotFound: true);
         m_DebugControls_SetDebug = m_DebugControls.FindAction("SetDebug", throwIfNotFound: true);
+        m_DebugControls_ExitMenu = m_DebugControls.FindAction("ExitMenu", throwIfNotFound: true);
         m_DebugControls_SlowdownTime = m_DebugControls.FindAction("SlowdownTime", throwIfNotFound: true);
         m_DebugControls_RestartScene = m_DebugControls.FindAction("RestartScene", throwIfNotFound: true);
         m_DebugControls_DebugCamera = m_DebugControls.FindAction("DebugCamera", throwIfNotFound: true);
@@ -402,6 +490,9 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
         m_DebugControls_CameraRotation = m_DebugControls.FindAction("CameraRotation", throwIfNotFound: true);
         m_DebugControls_SpeedMovement = m_DebugControls.FindAction("SpeedMovement", throwIfNotFound: true);
         m_DebugControls_NextOption = m_DebugControls.FindAction("NextOption", throwIfNotFound: true);
+        m_DebugControls_MoveLights = m_DebugControls.FindAction("MoveLights", throwIfNotFound: true);
+        m_DebugControls_SetLights = m_DebugControls.FindAction("SetLights", throwIfNotFound: true);
+        m_DebugControls_Reset = m_DebugControls.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -452,6 +543,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_DebugControls;
     private IDebugControlsActions m_DebugControlsActionsCallbackInterface;
     private readonly InputAction m_DebugControls_SetDebug;
+    private readonly InputAction m_DebugControls_ExitMenu;
     private readonly InputAction m_DebugControls_SlowdownTime;
     private readonly InputAction m_DebugControls_RestartScene;
     private readonly InputAction m_DebugControls_DebugCamera;
@@ -459,11 +551,15 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_DebugControls_CameraRotation;
     private readonly InputAction m_DebugControls_SpeedMovement;
     private readonly InputAction m_DebugControls_NextOption;
+    private readonly InputAction m_DebugControls_MoveLights;
+    private readonly InputAction m_DebugControls_SetLights;
+    private readonly InputAction m_DebugControls_Reset;
     public struct DebugControlsActions
     {
         private @DebugInputActions m_Wrapper;
         public DebugControlsActions(@DebugInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @SetDebug => m_Wrapper.m_DebugControls_SetDebug;
+        public InputAction @ExitMenu => m_Wrapper.m_DebugControls_ExitMenu;
         public InputAction @SlowdownTime => m_Wrapper.m_DebugControls_SlowdownTime;
         public InputAction @RestartScene => m_Wrapper.m_DebugControls_RestartScene;
         public InputAction @DebugCamera => m_Wrapper.m_DebugControls_DebugCamera;
@@ -471,6 +567,9 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
         public InputAction @CameraRotation => m_Wrapper.m_DebugControls_CameraRotation;
         public InputAction @SpeedMovement => m_Wrapper.m_DebugControls_SpeedMovement;
         public InputAction @NextOption => m_Wrapper.m_DebugControls_NextOption;
+        public InputAction @MoveLights => m_Wrapper.m_DebugControls_MoveLights;
+        public InputAction @SetLights => m_Wrapper.m_DebugControls_SetLights;
+        public InputAction @Reset => m_Wrapper.m_DebugControls_Reset;
         public InputActionMap Get() { return m_Wrapper.m_DebugControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -483,6 +582,9 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                 @SetDebug.started -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnSetDebug;
                 @SetDebug.performed -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnSetDebug;
                 @SetDebug.canceled -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnSetDebug;
+                @ExitMenu.started -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnExitMenu;
+                @ExitMenu.performed -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnExitMenu;
+                @ExitMenu.canceled -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnExitMenu;
                 @SlowdownTime.started -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnSlowdownTime;
                 @SlowdownTime.performed -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnSlowdownTime;
                 @SlowdownTime.canceled -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnSlowdownTime;
@@ -504,6 +606,15 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                 @NextOption.started -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnNextOption;
                 @NextOption.performed -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnNextOption;
                 @NextOption.canceled -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnNextOption;
+                @MoveLights.started -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnMoveLights;
+                @MoveLights.performed -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnMoveLights;
+                @MoveLights.canceled -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnMoveLights;
+                @SetLights.started -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnSetLights;
+                @SetLights.performed -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnSetLights;
+                @SetLights.canceled -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnSetLights;
+                @Reset.started -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnReset;
+                @Reset.performed -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnReset;
+                @Reset.canceled -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnReset;
             }
             m_Wrapper.m_DebugControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -511,6 +622,9 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                 @SetDebug.started += instance.OnSetDebug;
                 @SetDebug.performed += instance.OnSetDebug;
                 @SetDebug.canceled += instance.OnSetDebug;
+                @ExitMenu.started += instance.OnExitMenu;
+                @ExitMenu.performed += instance.OnExitMenu;
+                @ExitMenu.canceled += instance.OnExitMenu;
                 @SlowdownTime.started += instance.OnSlowdownTime;
                 @SlowdownTime.performed += instance.OnSlowdownTime;
                 @SlowdownTime.canceled += instance.OnSlowdownTime;
@@ -532,6 +646,15 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                 @NextOption.started += instance.OnNextOption;
                 @NextOption.performed += instance.OnNextOption;
                 @NextOption.canceled += instance.OnNextOption;
+                @MoveLights.started += instance.OnMoveLights;
+                @MoveLights.performed += instance.OnMoveLights;
+                @MoveLights.canceled += instance.OnMoveLights;
+                @SetLights.started += instance.OnSetLights;
+                @SetLights.performed += instance.OnSetLights;
+                @SetLights.canceled += instance.OnSetLights;
+                @Reset.started += instance.OnReset;
+                @Reset.performed += instance.OnReset;
+                @Reset.canceled += instance.OnReset;
             }
         }
     }
@@ -557,6 +680,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
     public interface IDebugControlsActions
     {
         void OnSetDebug(InputAction.CallbackContext context);
+        void OnExitMenu(InputAction.CallbackContext context);
         void OnSlowdownTime(InputAction.CallbackContext context);
         void OnRestartScene(InputAction.CallbackContext context);
         void OnDebugCamera(InputAction.CallbackContext context);
@@ -564,5 +688,8 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
         void OnCameraRotation(InputAction.CallbackContext context);
         void OnSpeedMovement(InputAction.CallbackContext context);
         void OnNextOption(InputAction.CallbackContext context);
+        void OnMoveLights(InputAction.CallbackContext context);
+        void OnSetLights(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }

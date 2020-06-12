@@ -42,13 +42,11 @@ public class InputManager : MonoBehaviour
 
     private void SetInputIconsToGamepad()
     {
-        Debug.Log("GAMEPAD");
         InputSchemeChangeEvent?.Invoke();
     }
 
     private void SetInputIconsToKeyboardAndMouse()
     {
-        Debug.Log("Keyboard&Mouse");
         InputSchemeChangeEvent?.Invoke();
     }
 }

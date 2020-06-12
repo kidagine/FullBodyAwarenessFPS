@@ -8,6 +8,14 @@
                 {
                     "name": "SetDebug",
                     "type": "Button",
+                    "id": "e7a3b25f-f3a4-4f2e-95e6-912f3e96977a",
+                    "expectedControlType": "Button",
+                    "processors": "InvertVector2(invertX=false),ScaleVector2(x=0.75,y=0.75),StickDeadzone",
+                    "interactions": ""
+                },
+                {
+                    "name": "ExitMenu",
+                    "type": "Button",
                     "id": "e9dbc2d6-c80a-4cdd-af92-f3500435e6f3",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -15,7 +23,7 @@
                 },
                 {
                     "name": "SlowdownTime",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "b6d12703-47b0-4d10-b602-01f550ad61fa",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -65,6 +73,30 @@
                     "name": "NextOption",
                     "type": "Button",
                     "id": "2588efa7-e73b-4951-b816-0ce07423cf1b",
+                    "expectedControlType": "Button",
+                    "processors": "InvertVector2(invertX=false),ScaleVector2(x=0.75,y=0.75),StickDeadzone",
+                    "interactions": ""
+                },
+                {
+                    "name": "MoveLights",
+                    "type": "PassThrough",
+                    "id": "4af86a5d-9712-41e2-a640-d5ec37e3f33f",
+                    "expectedControlType": "Vector2",
+                    "processors": "InvertVector2(invertX=false),ScaleVector2(x=0.75,y=0.75),StickDeadzone",
+                    "interactions": ""
+                },
+                {
+                    "name": "SetLights",
+                    "type": "Button",
+                    "id": "a1982b3b-9c25-47a8-97be-f936284bb594",
+                    "expectedControlType": "Button",
+                    "processors": "InvertVector2(invertX=false),ScaleVector2(x=0.75,y=0.75),StickDeadzone",
+                    "interactions": ""
+                },
+                {
+                    "name": "Reset",
+                    "type": "Button",
+                    "id": "138d53b6-8397-4c48-9581-21ec558298e3",
                     "expectedControlType": "Button",
                     "processors": "InvertVector2(invertX=false),ScaleVector2(x=0.75,y=0.75),StickDeadzone",
                     "interactions": ""
@@ -130,7 +162,7 @@
                     "name": "",
                     "id": "9e7ab92b-7660-4a40-81be-421f77bd92b3",
                     "path": "<Gamepad>/dpad/up",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "DebugCamera",
@@ -139,23 +171,23 @@
                 },
                 {
                     "name": "",
-                    "id": "bffdac99-a0ff-423a-9196-a69ae35571f9",
-                    "path": "<Keyboard>/v",
-                    "interactions": "",
+                    "id": "ab1a5e52-61d9-4fe4-9208-6244e4a7cf59",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "Tap",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "SetDebug",
+                    "groups": "Gamepad",
+                    "action": "ExitMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "ab1a5e52-61d9-4fe4-9208-6244e4a7cf59",
-                    "path": "<Gamepad>/dpad/down",
-                    "interactions": "",
+                    "id": "bffdac99-a0ff-423a-9196-a69ae35571f9",
+                    "path": "<Keyboard>/v",
+                    "interactions": "Tap",
                     "processors": "",
-                    "groups": "Gamepad",
-                    "action": "SetDebug",
+                    "groups": "Keyboard&Mouse",
+                    "action": "ExitMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -343,6 +375,61 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "NextOption",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d1a92618-07f6-485f-a2a7-ed92b2bf4651",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "MoveLights",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "37a4c5bc-10f9-499c-bfc1-da354a9883b4",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveLights",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a55e5e0d-bfd6-4b6d-bdf7-506cc8ec70e3",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SetLights",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4bdb9d4b-14fc-474f-9b34-88b48768238a",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ed0350a-4eaf-46c5-88e4-43e6228b19fb",
+                    "path": "<Gamepad>/select",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SetDebug",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

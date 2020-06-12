@@ -8,8 +8,7 @@
 
 using UnityEngine;
 
-namespace UnityTemplateProjects
-{
+
     public class DebugCamera : MonoBehaviour
     {
         class CameraState
@@ -172,6 +171,4 @@ namespace UnityTemplateProjects
 
         }
     }
-
-}
 #endif
