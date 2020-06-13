@@ -49,7 +49,7 @@ public class DebugUIDefault : MonoBehaviour
         _debugUIVisuals.ResetToDefault();
     }
 
-    public void ExitMenu()
+    public void CloseDebug()
     {
         if (gameObject.activeInHierarchy)
         {

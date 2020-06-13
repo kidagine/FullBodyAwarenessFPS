@@ -26,7 +26,7 @@
                     "type": "PassThrough",
                     "id": "3a209683-0fc2-426a-99c9-71296df2d4f9",
                     "expectedControlType": "Vector2",
-                    "processors": "ScaleVector2(x=0.75,y=0.75),InvertVector2(invertX=false)",
+                    "processors": "InvertVector2(invertX=false)",
                     "interactions": ""
                 },
                 {
@@ -52,6 +52,17 @@
                 },
                 {
                     "name": "",
+                    "id": "036cb1af-8f8c-44e9-8b60-5b0e185bdb08",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "CloseDebugCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "87841708-0937-4880-a3b7-905a372eb935",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
@@ -62,12 +73,78 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "WASD",
+                    "id": "2dc31cbc-e59c-45b1-a2b9-c1d6e207689f",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DebugCameraMovement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "608ae8f2-9ab1-4553-a546-882d4b01e7a2",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "DebugCameraMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "91a395d3-1f53-4241-80d3-07964f45a1c2",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "DebugCameraMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "d4937415-44b3-407c-8cb5-396e64fe6145",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "DebugCameraMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "f2526661-ebbe-4c98-892b-aebd61d612f4",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "DebugCameraMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "c6fe3434-a564-4894-8621-fc0554c76c18",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "StickDeadzone",
+                    "processors": "StickDeadzone,ScaleVector2(x=0.75,y=0.75)",
                     "groups": "Gamepad",
+                    "action": "DebugCameraRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3166bc65-756f-4038-8d4c-1fc28a4c460d",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "ScaleVector2(x=0.05,y=0.05)",
+                    "groups": "Keyboard&Mouse",
                     "action": "DebugCameraRotation",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -79,6 +156,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "DebugCameraSpeed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3ed9acc6-dcf3-45a3-894f-6635c8cbfb8b",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "DebugCameraSpeed",
                     "isComposite": false,
                     "isPartOfComposite": false

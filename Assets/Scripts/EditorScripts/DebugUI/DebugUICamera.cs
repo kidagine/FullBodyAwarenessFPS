@@ -10,7 +10,6 @@ public class DebugUICamera : MonoBehaviour
     [SerializeField] private GameObject _debugGeneralUI = default;
     [SerializeField] private GameObject _debugCameraUI = default;
     [SerializeField] private GameObject _debugCamera = default;
-    [SerializeField] private GameObject _displayCamera = default;
     [SerializeField] private GameObject _playerCamera = default;
     private readonly string _debugCameraText = "Debug Camera";
     private readonly string _gameCameraText = "Game Camera";

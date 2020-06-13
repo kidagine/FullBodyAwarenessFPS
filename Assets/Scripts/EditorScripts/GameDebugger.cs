@@ -21,7 +21,7 @@ public class GameDebugger : MonoBehaviour
         }
     }
 
-    public void SetDebugger()
+    public void OpenDebug()
     {
         if (!_gameDebuggerCanvas.activeSelf)
         {
