@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2035111234}
-  m_IndirectSpecularColor: {r: 131.16855, g: 162.52502, b: 215.10977, a: 1}
+  m_IndirectSpecularColor: {r: 131.16867, g: 162.54297, b: 215.1647, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4629,7 +4629,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0874b1402a957a44bb5134a23e757ec0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 63b4a1ad1807e0c4786ab407027a997c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5083,7 +5083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 203f6f1fbe29b2543ae6d7c07b80a16e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 83795490423fbdd4c831cc8429112fd5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -5548,7 +5548,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2d92c5ce16d767d4fb5eae3b41698f20, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7bbdb7a5c8e42e8479897bb2de916cda, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7133,7 +7133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: febdf2b894fd74f4b91dc290075e8f93, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47f346b230fc4d6499904fab41a2c4a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8408,7 +8408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: a123fc0ac58cb774e8592c925f167e7c, type: 2}
   m_StaticLightingSkyUniqueID: 1
-  m_SkySettings: {fileID: 1176001150}
+  m_SkySettings: {fileID: 638459400}
   m_SkySettingsFromProfile: {fileID: -1658960478407648048, guid: a123fc0ac58cb774e8592c925f167e7c,
     type: 2}
 --- !u!4 &313761475
@@ -15203,6 +15203,107 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634720644}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &638459400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 10
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  hdriSky:
+    m_OverrideState: 0
+    m_Value: {fileID: 8900000, guid: 54a3a0570aebe8949bec4966f1376581, type: 3}
+  enableBackplate:
+    m_OverrideState: 0
+    m_Value: 0
+  backplateType:
+    m_OverrideState: 0
+    m_Value: 0
+  groundLevel:
+    m_OverrideState: 0
+    m_Value: 0
+  scale:
+    m_OverrideState: 0
+    m_Value: {x: 32, y: 32}
+  projectionDistance:
+    m_OverrideState: 0
+    m_Value: 16
+    min: 0.0000001
+  plateRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexOffset:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0}
+  blendAmount:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 100
+  shadowTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  pointLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  dirLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  rectLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!1 &643620508
 GameObject:
   m_ObjectHideFlags: 0
@@ -23114,7 +23215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 75c4bb39990e5a1438253797bc520c6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c071e9092bed13c459b5e8041970d3f5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -23281,7 +23382,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 203f6f1fbe29b2543ae6d7c07b80a16e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a4c4338b60542f8489d45b1ded34487e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -24043,6 +24144,7 @@ GameObject:
   - component: {fileID: 1058926236}
   - component: {fileID: 1058926235}
   - component: {fileID: 1058926238}
+  - component: {fileID: 1058926237}
   m_Layer: 0
   m_Name: GameDebugger_group
   m_TagString: EditorOnly
@@ -24081,6 +24183,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1058926237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058926234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c966f2ef1e8cd46990d63c09c64121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resetImage: {fileID: 149145950}
+  _exitMenuImage: {fileID: 1347052721}
+  _nextOptionImage: {fileID: 265844971}
+  _debugCameraImage: {fileID: 175498572}
+  _restartSceneImage: {fileID: 1024317592}
+  _slowdownTimeImage: {fileID: 190271405}
+  _lightsImage: {fileID: 1034023753}
+  _moveLightsImage: {fileID: 1806225212}
+  _exitDebugCameraImage: {fileID: 1128095509}
 --- !u!114 &1058926238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25634,7 +25757,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 203f6f1fbe29b2543ae6d7c07b80a16e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 83795490423fbdd4c831cc8429112fd5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -26847,107 +26970,6 @@ SpringJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &1176001150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 10
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  hdriSky:
-    m_OverrideState: 0
-    m_Value: {fileID: 8900000, guid: 54a3a0570aebe8949bec4966f1376581, type: 3}
-  enableBackplate:
-    m_OverrideState: 0
-    m_Value: 0
-  backplateType:
-    m_OverrideState: 0
-    m_Value: 0
-  groundLevel:
-    m_OverrideState: 0
-    m_Value: 0
-  scale:
-    m_OverrideState: 0
-    m_Value: {x: 32, y: 32}
-  projectionDistance:
-    m_OverrideState: 0
-    m_Value: 16
-    min: 0.0000001
-  plateRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexOffset:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0}
-  blendAmount:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 100
-  shadowTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  pointLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  dirLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  rectLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!1 &1176391977
 GameObject:
   m_ObjectHideFlags: 0
@@ -28092,8 +28114,8 @@ MonoBehaviour:
   _buttonNorth: {fileID: 21300000, guid: 0874b1402a957a44bb5134a23e757ec0, type: 3}
   _v: {fileID: 21300000, guid: f652a2fe3ade9694c95d94a1c196f54a, type: 3}
   _l: {fileID: 21300000, guid: a4c4338b60542f8489d45b1ded34487e, type: 3}
-  _r: {fileID: 21300000, guid: 676adc9cc1a74c84694fda676c44fb2e, type: 3}
-  _ad: {fileID: 21300000, guid: c8fd305c1ca563649a541b314d03fbd7, type: 3}
+  _r: {fileID: 21300000, guid: 63b4a1ad1807e0c4786ab407027a997c, type: 3}
+  _ad: {fileID: 21300000, guid: 7bbdb7a5c8e42e8479897bb2de916cda, type: 3}
   _x: {fileID: 21300000, guid: 83795490423fbdd4c831cc8429112fd5, type: 3}
   _e: {fileID: 21300000, guid: 47f346b230fc4d6499904fab41a2c4a5, type: 3}
   _q: {fileID: 21300000, guid: c071e9092bed13c459b5e8041970d3f5, type: 3}
@@ -29683,7 +29705,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a14efcee8956e2f4cb9156fd9a048c62, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f652a2fe3ade9694c95d94a1c196f54a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -30322,11 +30344,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _displayCameraText: {fileID: 73866950}
   _slowdownTimeSlider: {fileID: 1716851615}
-  _exitMenuImage: {fileID: 1347052721}
-  _nextOptionImage: {fileID: 265844971}
-  _debugCameraImage: {fileID: 175498572}
-  _restartSceneImage: {fileID: 1024317592}
-  _slowdownTimeImage: {fileID: 190271405}
   _debugDefaultUI: {fileID: 1042401270}
   _debugGeneralUI: {fileID: 1406585798}
   _debugCameraUI: {fileID: 1554143174}
@@ -38523,7 +38540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2d92c5ce16d767d4fb5eae3b41698f20, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7bbdb7a5c8e42e8479897bb2de916cda, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

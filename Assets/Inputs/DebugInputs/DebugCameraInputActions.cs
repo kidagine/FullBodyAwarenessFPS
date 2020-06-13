@@ -55,7 +55,7 @@ public class @DebugCameraInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b2667712-e3df-4cca-9996-6d86f383f1ea"",
-                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",

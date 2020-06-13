@@ -8,11 +8,6 @@ public class DebugUIGeneral : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _displayCameraText = default;
     [SerializeField] private Slider _slowdownTimeSlider = default;
-    [SerializeField] private Image _exitMenuImage = default;
-    [SerializeField] private Image _nextOptionImage = default;
-    [SerializeField] private Image _debugCameraImage = default;
-    [SerializeField] private Image _restartSceneImage = default;
-    [SerializeField] private Image _slowdownTimeImage = default;
     [SerializeField] private GameObject _debugDefaultUI = default;
     [SerializeField] private GameObject _debugGeneralUI = default;
     [SerializeField] private GameObject _debugCameraUI = default;
@@ -23,11 +18,6 @@ public class DebugUIGeneral : MonoBehaviour
     private Vector2 _slowdownTimeInput;
 
 
-    void Start()
-    {
-        InputManager.Instance.InputSchemeChangeEvent += SetUIImages;
-    }
-
     void Update()
     {
         if (_slowdownTimeInput.x != 0.0f)
@@ -37,15 +27,6 @@ public class DebugUIGeneral : MonoBehaviour
             slowdownTime -= _slowdownTimeSlider.value;
             Time.timeScale = slowdownTime;
         }    
-    }
-
-    private void SetUIImages()
-    {
-        _exitMenuImage.sprite = InputManager.Instance.ExitMenuSprite;
-        _nextOptionImage.sprite = InputManager.Instance.NextOptionSprite;
-        _debugCameraImage.sprite = InputManager.Instance.DebugCameraSprite;
-        _restartSceneImage.sprite = InputManager.Instance.RestartSceneSprite;
-        _slowdownTimeImage.sprite = InputManager.Instance.SlowdownTimeSprite;
     }
 
     public void SlowdownTime(Vector2 slowdownTimeInput)
