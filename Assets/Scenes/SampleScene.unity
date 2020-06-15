@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2035111234}
-  m_IndirectSpecularColor: {r: 131.16867, g: 162.54297, b: 215.1647, a: 1}
+  m_IndirectSpecularColor: {r: 131.13168, g: 162.57239, b: 215.29922, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8408,7 +8408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: a123fc0ac58cb774e8592c925f167e7c, type: 2}
   m_StaticLightingSkyUniqueID: 1
-  m_SkySettings: {fileID: 638459400}
+  m_SkySettings: {fileID: 659581353}
   m_SkySettingsFromProfile: {fileID: -1658960478407648048, guid: a123fc0ac58cb774e8592c925f167e7c,
     type: 2}
 --- !u!4 &313761475
@@ -15203,107 +15203,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634720644}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &638459400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 10
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  hdriSky:
-    m_OverrideState: 0
-    m_Value: {fileID: 8900000, guid: 54a3a0570aebe8949bec4966f1376581, type: 3}
-  enableBackplate:
-    m_OverrideState: 0
-    m_Value: 0
-  backplateType:
-    m_OverrideState: 0
-    m_Value: 0
-  groundLevel:
-    m_OverrideState: 0
-    m_Value: 0
-  scale:
-    m_OverrideState: 0
-    m_Value: {x: 32, y: 32}
-  projectionDistance:
-    m_OverrideState: 0
-    m_Value: 16
-    min: 0.0000001
-  plateRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexOffset:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0}
-  blendAmount:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 100
-  shadowTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  pointLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  dirLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  rectLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!1 &643620508
 GameObject:
   m_ObjectHideFlags: 0
@@ -15848,6 +15747,107 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656131362}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &659581353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 10
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  hdriSky:
+    m_OverrideState: 0
+    m_Value: {fileID: 8900000, guid: 54a3a0570aebe8949bec4966f1376581, type: 3}
+  enableBackplate:
+    m_OverrideState: 0
+    m_Value: 0
+  backplateType:
+    m_OverrideState: 0
+    m_Value: 0
+  groundLevel:
+    m_OverrideState: 0
+    m_Value: 0
+  scale:
+    m_OverrideState: 0
+    m_Value: {x: 32, y: 32}
+  projectionDistance:
+    m_OverrideState: 0
+    m_Value: 16
+    min: 0.0000001
+  plateRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexOffset:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0}
+  blendAmount:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 100
+  shadowTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  pointLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  dirLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  rectLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!1 &670654501
 GameObject:
   m_ObjectHideFlags: 0
@@ -25618,7 +25618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1126746450
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27790,7 +27790,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -33355,6 +33355,7 @@ GameObject:
   - component: {fileID: 1529878290}
   - component: {fileID: 1529878289}
   - component: {fileID: 1529878288}
+  - component: {fileID: 1529878295}
   m_Layer: 11
   m_Name: Player_gameObject
   m_TagString: Untagged
@@ -33424,6 +33425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _playerMovement: {fileID: 1529878292}
+  _playerAudio: {fileID: 1529878295}
   _animator: {fileID: 1529878294}
 --- !u!114 &1529878290
 MonoBehaviour:
@@ -33446,6 +33448,10 @@ MonoBehaviour:
   _raycastDownDistance: 0.3
   _pelvisUpAndDownSpeed: 0.28
   _feetToIKPositionSpeed: 0.5
+  _rightFootIKPosition: {x: 0, y: 0, z: 0}
+  _leftFootIKPosition: {x: 0, y: 0, z: 0}
+  _rightFootIKRotation: {x: 0, y: 0, z: 0, w: 0}
+  _leftFootIKRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1529878291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33478,7 +33484,8 @@ MonoBehaviour:
   _characterController: {fileID: 1529878293}
   _camera: {fileID: 1297650280}
   _playerIKSystem: {fileID: 1529878290}
-  _groundMask:
+  _playerAudio: {fileID: 1529878295}
+  _environmentLayerMask:
     serializedVersion: 2
     m_Bits: 256
 --- !u!143 &1529878293
@@ -33518,6 +33525,134 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1529878295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529878286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577d9f1c69a60154189269e8ac733cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sounds:
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 758a191a6f0725d4daee63183d52ccd0, type: 3}
+    volume: 1
+    pitch: 1
+    name: footstep
+    loop: 0
+    playOnAwake: 0
+  _soundGroups:
+  - name: Footsteps
+    sounds:
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: 758a191a6f0725d4daee63183d52ccd0, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: bd94f02b55ea8ac4e8184b9f59e5fdbb, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: e16f2766aac19fb42b7ffe59527c9af1, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: 9835f0be279506a4b839d7bd42848577, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: 715f3ba444140944d8bdb40f6b6c4f1e, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: bd0c64da32d4c734da4f7bae6eb0c419, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: daad968740f85b84d98e127ad6d5045b, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: dc29d0df6e483794abe1d7bc9b8ef9ee, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: c3771dda4769a9b48bb80f4e401d20e5, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: dbc28a928c2ae4746952779166eb85ed, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: 81df14e7e6989b041ac3a2d6959f2ece, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: 4498f1c461519db40a8a71c3433a7b48, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: 42ce74ec5436fd04cb3bc9c8147f5304, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: 5bdceb9a58ff4bf4e96d2bae40b3712b, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
+    - source: {fileID: 0}
+      clip: {fileID: 8300000, guid: a6e80dcc5c5f2994a9c09c1b50b4f587, type: 3}
+      volume: 0.3
+      pitch: 1
+      name: 
+      loop: 0
+      playOnAwake: 0
 --- !u!1 &1530322948
 GameObject:
   m_ObjectHideFlags: 0
@@ -41367,7 +41502,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -50505,7 +50640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &3147252478003994201
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -56761,7 +56896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8347771342714298562
 Transform:
   m_ObjectHideFlags: 0
@@ -57303,7 +57438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &9150094901966641778
 Rigidbody:
   m_ObjectHideFlags: 0

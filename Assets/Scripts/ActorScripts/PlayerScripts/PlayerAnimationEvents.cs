@@ -4,6 +4,7 @@ public class PlayerAnimationEvents : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private EntityAudio _playerAudio;
     [SerializeField] private Animator _animator;
 
     public void EnableShoot()
@@ -49,5 +50,10 @@ public class PlayerAnimationEvents : MonoBehaviour
     public void DisableSlowdown()
     {
         Time.timeScale = 1.0f;
+    }
+
+    public void PlayFootstepAnimationEvent()
+    {
+        _playerMovement.Footsteps();
     }
 }

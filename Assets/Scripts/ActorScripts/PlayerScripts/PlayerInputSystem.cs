@@ -78,13 +78,13 @@ public class PlayerInputSystem : MonoBehaviour
         _playerMovementScript.SwitchWalkMode();
     }
 
-    private void OnEnable()
-    {
-        _playerInputActions.Enable();
-    }
+        private void OnEnable()
+        {
+            _playerInputActions.Enable();
+        }
 
-    private void OnDisable()
-    {
-        _playerInputActions.Disable();
-    }
+        private void OnDisable()
+        {
+            _playerInputActions.Disable();
+        }
 }
