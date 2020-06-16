@@ -11,22 +11,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerIKSystem _playerIKSystem = default;
     [SerializeField] private EntityAudio _playerAudio;
     [SerializeField] private LayerMask _environmentLayerMask = default;
+    private readonly float _jumpHeight = 0.8f;
+    private readonly float _joggingSpeed = 4.5f;
+    private readonly float _walkSpeed = 2.0f;
+    private readonly float _jumpSpeed = 1.3f;
     private readonly int _gravity = -20;
-    private readonly float _jumpHeight = 1.2f;
     private Vector3 _velocity;
     private Vector3 _lastPosition;
     private Vector3 _rightFootPosition;
     private Vector3 _leftFootPosition;
+    private float _moveSpeed = 2.0f;
+    private float _groundedRaycastSize = 0.5f;
     private float _xAxis;
     private float _yAxis;
-    private float _walkSpeed = 2f;
-    private float _moveSpeed = 2;
-    private float _groundedRaycastSize = 0.2f;
     private bool _isJoggingOn;
     private bool isRightFootOnGround;
     private bool isLeftFootOnGround;
-    private bool _hasRaisedLeftFoot;
-    private bool _hasRaisedRightFoot;
 
     public Vector3 Move { get; private set; }
     public Vector2 MovementInput { get; set; }
@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
     public bool LockMovement { get; set; }
     public bool IsRunning { get; private set; }
     public bool CanJump { get; set; } = true;
-
 
 
     void Update()
@@ -74,20 +73,30 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckGrounded()
     {
-        _rightFootPosition = _playerIKSystem.GetAdjustedFootTarget(HumanBodyBones.RightFoot);
-        _leftFootPosition = _playerIKSystem.GetAdjustedFootTarget(HumanBodyBones.RightToes);
+        _rightFootPosition = _playerIKSystem.GetAdjustedFootTarget(HumanBodyBones.RightToes);
+        _leftFootPosition = _playerIKSystem.GetAdjustedFootTarget(HumanBodyBones.LeftToes);
         isRightFootOnGround = IsFootGrounded(_rightFootPosition, ref _playerIKSystem._rightFootIKPosition, ref _playerIKSystem._rightFootIKRotation);
         isLeftFootOnGround = IsFootGrounded(_leftFootPosition, ref _playerIKSystem._leftFootIKPosition, ref _playerIKSystem._leftFootIKRotation);
 
         if (!isRightFootOnGround && !isLeftFootOnGround)
         {
-            _animator.SetBool("IsFalling", true);
+            if (IsGrounded)
+            {
+                _animator.SetBool("IsFalling", true);
+                _groundedRaycastSize = 0.2f;
+                _moveSpeed = _jumpSpeed;
+            }
             IsGrounded = false;
         }
-        else
+        else if (_velocity.y < 0.0f)
         {
-            _animator.SetBool("IsFalling", false);
-            _groundedRaycastSize = 1.0f;
+            if (!IsGrounded)
+            {
+                _animator.SetBool("IsFalling", false);
+                _groundedRaycastSize = 0.5f;
+                _moveSpeed = _walkSpeed;
+            }
+            _velocity.y = -2;
             IsGrounded = true;
         }
     }
@@ -95,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
     private bool IsFootGrounded(Vector3 footPosition, ref Vector3 footIKPosition, ref Quaternion footIKRotations)
     {
         footIKPosition = Vector3.zero;
-        if (Physics.Raycast(footPosition, Vector3.down, out RaycastHit hit, 0.15f, _environmentLayerMask))
+        if (Physics.Raycast(footPosition, Vector3.down, out RaycastHit hit, _groundedRaycastSize, _environmentLayerMask))
         {
             footIKPosition = footPosition;
             footIKPosition.y = hit.point.y;
@@ -117,7 +126,8 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetTrigger("Jump");
             CanJump = false;
-            _groundedRaycastSize = 0.1f;
+            _groundedRaycastSize = 0.2f;
+            _moveSpeed = _jumpSpeed;
             _velocity.y = Mathf.Sqrt(_jumpHeight * -1.0f * _gravity);
         }
     }
@@ -161,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Move != Vector3.zero)
         {
-            //_playerAudio.PlayRandomFromSoundGroup("Footsteps");
+            _playerAudio.PlayRandomFromSoundGroup("Footsteps");
         }
     }
 
@@ -170,14 +180,13 @@ public class PlayerMovement : MonoBehaviour
         if (_isJoggingOn)
         {
             _isJoggingOn = false;
-            _walkSpeed = 2.0f;
+            _moveSpeed = _walkSpeed;
         }
         else
         {
             _isJoggingOn = true;
-            _walkSpeed = 4.5f;
+            _moveSpeed = _joggingSpeed;
         }
-        _moveSpeed = _walkSpeed;
         _animator.SetBool("IsJogging", _isJoggingOn);
     }
 }
