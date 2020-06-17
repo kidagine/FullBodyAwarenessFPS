@@ -3,14 +3,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputSystem : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement _playerMovementScript;
-    [SerializeField] private PlayerCamera _playerCamera;
+    [SerializeField] private Player _player = default;
+    [SerializeField] private PlayerMovement _playerMovementScript = default;
+    [SerializeField] private PlayerCamera _playerCamera = default;
     private PlayerInputActions _playerInputActions;
 
 
     void Awake()
     {
         _playerInputActions = new PlayerInputActions();
+        _playerInputActions.PlayerControls.Holster.performed += ToggleHolster;
         _playerInputActions.PlayerControls.Move.performed += SetMove;
         _playerInputActions.PlayerControls.Camera.performed += SetCamera;
         _playerInputActions.PlayerControls.SwapCamera.performed += SwapCamera;
@@ -21,6 +23,11 @@ public class PlayerInputSystem : MonoBehaviour
         _playerInputActions.PlayerControls.Run.performed += Run;
         _playerInputActions.PlayerControls.PauseRun.performed += PauseRun;
         _playerInputActions.PlayerControls.SwitchWalk.performed += SwitchWalk;
+    }
+
+    private void ToggleHolster(InputAction.CallbackContext context)
+    {
+        _player.ToggleHolster();
     }
 
     private void SetMove(InputAction.CallbackContext context)

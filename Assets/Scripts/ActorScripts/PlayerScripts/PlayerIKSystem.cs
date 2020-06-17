@@ -29,14 +29,14 @@ public class PlayerIKSystem : MonoBehaviour
 
     void LateUpdate()
     {
-        if (_fpsCamera.activeSelf)
-        {
-            _head.LookAt(_lookAtTarget);
-        }
-        else
-        {
-            _head.LookAt(null);
-        }
+        //if (_fpsCamera.activeSelf)
+        //{
+        //    _head.LookAt(_lookAtTarget);
+        //}
+        //else
+        //{
+        //    _head.LookAt(null);
+        //}
     }
 
     public Vector3 GetAdjustedFootTarget(HumanBodyBones foot)

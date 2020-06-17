@@ -7,15 +7,6 @@ public class PlayerAnimationEvents : MonoBehaviour
     [SerializeField] private EntityAudio _playerAudio = default;
     [SerializeField] private Animator _animator = default;
 
-    public void EnableShoot()
-    {
-        _player.CanShoot = true;
-    }
-
-    public void DisableShoot()
-    {
-        _player.CanShoot = false;
-    }
 
     public void EnableAnyState()
     {
@@ -30,16 +21,6 @@ public class PlayerAnimationEvents : MonoBehaviour
     public void EnableJump()
     {
         _playerMovement.CanJump = true;
-    }
-
-    public void EnableMovement()
-    {
-        _player.LockMovement = false;
-    }
-
-    public void DisableMovement()
-    {
-        _player.LockMovement = true;
     }
 
     public void EnableSlowdown()
