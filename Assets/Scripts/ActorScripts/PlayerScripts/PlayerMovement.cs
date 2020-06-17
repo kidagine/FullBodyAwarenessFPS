@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Animator _animator = default;
     [SerializeField] private Transform _leftFoot = default;
     [SerializeField] private Transform _rightFoot = default;
-    [SerializeField] private CharacterController _characterController = default;
     [SerializeField] private GameObject _camera = default;
+    [SerializeField] private CharacterController _characterController = default;
     [SerializeField] private PlayerIKSystem _playerIKSystem = default;
-    [SerializeField] private EntityAudio _playerAudio;
+    [SerializeField] private EntityAudio _playerAudio = default;
     [SerializeField] private LayerMask _environmentLayerMask = default;
     private readonly float _jumpHeight = 0.8f;
     private readonly float _joggingSpeed = 4.5f;
@@ -27,11 +28,10 @@ public class PlayerMovement : MonoBehaviour
     private bool _isJoggingOn;
     private bool isRightFootOnGround;
     private bool isLeftFootOnGround;
+    private bool _isGrounded;
 
     public Vector3 Move { get; private set; }
     public Vector2 MovementInput { get; set; }
-    public RaycastHit Hit { get; set; }
-    public bool IsGrounded { get; set; }
     public bool LockMovement { get; set; }
     public bool IsRunning { get; private set; }
     public bool CanJump { get; set; } = true;
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     void LateUpdate()
     {
-        //EdgeFalling();
+        EdgeFalling();
     }
 
     private void Movement()
@@ -80,24 +80,26 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isRightFootOnGround && !isLeftFootOnGround)
         {
-            if (IsGrounded)
+            if (_isGrounded)
             {
                 _animator.SetBool("IsFalling", true);
+                _playerIKSystem.IsFootIKEnabled = false;
                 _groundedRaycastSize = 0.2f;
                 _moveSpeed = _jumpSpeed;
             }
-            IsGrounded = false;
+            _isGrounded = false;
         }
         else if (_velocity.y < 0.0f)
         {
-            if (!IsGrounded)
+            if (!_isGrounded)
             {
                 _animator.SetBool("IsFalling", false);
+                _playerIKSystem.IsFootIKEnabled = true;
                 _groundedRaycastSize = 0.5f;
                 _moveSpeed = _walkSpeed;
             }
             _velocity.y = -2;
-            IsGrounded = true;
+            _isGrounded = true;
         }
     }
 
@@ -122,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (IsGrounded)
+        if (_isGrounded && CanJump)
         {
             _animator.SetTrigger("Jump");
             CanJump = false;
@@ -165,6 +167,36 @@ public class PlayerMovement : MonoBehaviour
     public void PauseRun()
     {
 
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _characterController.radius - _characterController.skinWidth);
+    }
+    private void EdgeFalling()
+    {
+
+        if (!_isGrounded)
+        {
+            if (Physics.SphereCast(transform.position, _characterController.radius - _characterController.skinWidth, Vector3.down, out RaycastHit hitInfo, _characterController.height))
+            {
+                Vector3 relativeHitPoint = hitInfo.point - transform.position;
+                relativeHitPoint.y = 0;
+                Debug.Log(relativeHitPoint.magnitude);
+                if (relativeHitPoint.magnitude == 0.0f)
+                {
+                    Vector3 edgeFallMovement = transform.position - hitInfo.point;
+                    edgeFallMovement.y = 0;
+                    _velocity += (edgeFallMovement * Time.deltaTime * 20);
+                }
+                else
+                {
+                    _velocity.z = 0.0f;
+                    _velocity.x = 0.0f;
+                }
+            }
+        }
     }
 
     public void Footsteps()

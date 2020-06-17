@@ -18,33 +18,9 @@ public class IKControler : MonoBehaviour
     private readonly float _clampWeight = 1.0f;
     private Animator _animator;
 
-    private Transform chest;
     public Transform target;
     public Transform staticTarget;
 
-    public Vector3 offset;
-    public GameObject _fpsCamera;
-    public GameObject _thirdPersonCamera;
-
-    void Start()
-    {
-        _animator = GetComponent<Animator>();
-        chest = _animator.GetBoneTransform(HumanBodyBones.Head);
-    }
-
-
-    private void LateUpdate()
-    {
-        if (_fpsCamera.activeSelf)
-        {
-            chest.LookAt(target);
-            chest.rotation *= Quaternion.Euler(offset);
-        }
-        else
-        {
-            chest.LookAt(null);
-        }
-    }
 
     void OnAnimatorIK(int layerIndex)
     {

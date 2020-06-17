@@ -8,7 +8,7 @@ public class PlayerInputSystem : MonoBehaviour
     private PlayerInputActions _playerInputActions;
 
 
-    private void Awake()
+    void Awake()
     {
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.PlayerControls.Move.performed += SetMove;
@@ -23,43 +23,42 @@ public class PlayerInputSystem : MonoBehaviour
         _playerInputActions.PlayerControls.SwitchWalk.performed += SwitchWalk;
     }
 
-    public void SetMove(InputAction.CallbackContext context)
+    private void SetMove(InputAction.CallbackContext context)
     {
         _playerMovementScript.MovementInput = context.ReadValue<Vector2>();
     }
 
-    public void SetCamera(InputAction.CallbackContext context)
+    private void SetCamera(InputAction.CallbackContext context)
     {
-        //_playerCamera.CameraInput = context.ReadValue<Vector2>();
         _playerCamera.SetCameraInput(context.ReadValue<Vector2>());
     }
 
-    public void SwapCamera(InputAction.CallbackContext context)
+    private void SwapCamera(InputAction.CallbackContext context)
     {
         _playerCamera.SwapCamera();
     }
 
-    public void Jump(InputAction.CallbackContext context)
+    private void Jump(InputAction.CallbackContext context)
     {
         _playerMovementScript.Jump();
     }
 
-    public void Crouch(InputAction.CallbackContext context)
+    private void Crouch(InputAction.CallbackContext context)
     {
         _playerMovementScript.Crouch();
     }
 
-    public void Prone(InputAction.CallbackContext context)
+    private void Prone(InputAction.CallbackContext context)
     {
         _playerMovementScript.Prone();
     }
 
-    public void Slide(InputAction.CallbackContext context)
+    private void Slide(InputAction.CallbackContext context)
     {
         _playerMovementScript.Slide();
     }
 
-    public void Run(InputAction.CallbackContext context)
+    private void Run(InputAction.CallbackContext context)
     {
         _playerMovementScript.Run();
         //else if (context.canceled)
@@ -68,23 +67,23 @@ public class PlayerInputSystem : MonoBehaviour
         //}
     }
 
-    public void PauseRun(InputAction.CallbackContext context)
+    private void PauseRun(InputAction.CallbackContext context)
     {
         // _playerScript.PauseRun();
     }
 
-    public void SwitchWalk(InputAction.CallbackContext context)
+    private void SwitchWalk(InputAction.CallbackContext context)
     {
         _playerMovementScript.SwitchWalkMode();
     }
 
-        private void OnEnable()
-        {
-            _playerInputActions.Enable();
-        }
+    void OnEnable()
+    {
+        _playerInputActions.Enable();
+    }
 
-        private void OnDisable()
-        {
-            _playerInputActions.Disable();
-        }
+    void OnDisable()
+    {
+        _playerInputActions.Disable();
+    }
 }

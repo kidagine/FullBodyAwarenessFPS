@@ -3,9 +3,9 @@
 public class PlayerAnimationEvents : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    [SerializeField] private PlayerMovement _playerMovement;
-    [SerializeField] private EntityAudio _playerAudio;
-    [SerializeField] private Animator _animator;
+    [SerializeField] private PlayerMovement _playerMovement = default;
+    [SerializeField] private EntityAudio _playerAudio = default;
+    [SerializeField] private Animator _animator = default;
 
     public void EnableShoot()
     {
