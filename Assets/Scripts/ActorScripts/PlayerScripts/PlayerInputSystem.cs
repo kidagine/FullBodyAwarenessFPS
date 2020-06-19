@@ -13,6 +13,7 @@ public class PlayerInputSystem : MonoBehaviour
     {
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.PlayerControls.Holster.performed += ToggleHolster;
+        _playerInputActions.PlayerControls.ShootGun.performed += ShootGun;
         _playerInputActions.PlayerControls.Move.performed += SetMove;
         _playerInputActions.PlayerControls.Camera.performed += SetCamera;
         _playerInputActions.PlayerControls.SwapCamera.performed += SwapCamera;
@@ -28,6 +29,11 @@ public class PlayerInputSystem : MonoBehaviour
     private void ToggleHolster(InputAction.CallbackContext context)
     {
         _player.ToggleHolster();
+    }
+
+    private void ShootGun(InputAction.CallbackContext context)
+    {
+        _player.ShootGun();
     }
 
     private void SetMove(InputAction.CallbackContext context)

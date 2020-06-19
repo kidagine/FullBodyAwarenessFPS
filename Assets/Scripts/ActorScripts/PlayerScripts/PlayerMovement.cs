@@ -183,7 +183,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector3 relativeHitPoint = hitInfo.point - transform.position;
                 relativeHitPoint.y = 0;
-                Debug.Log(relativeHitPoint.magnitude);
                 if (relativeHitPoint.magnitude == 0.0f)
                 {
                     Vector3 edgeFallMovement = transform.position - hitInfo.point;

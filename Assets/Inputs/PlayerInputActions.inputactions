@@ -54,7 +54,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Shoot",
+                    "name": "ShootGun",
                     "type": "Button",
                     "id": "e5d6d13b-7602-4b63-b7f1-d5920d8df652",
                     "expectedControlType": "",
@@ -267,7 +267,7 @@
                     "interactions": "Press",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Shoot",
+                    "action": "ShootGun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -278,7 +278,7 @@
                     "interactions": "Press",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Shoot",
+                    "action": "ShootGun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

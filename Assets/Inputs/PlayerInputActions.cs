@@ -67,7 +67,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Shoot"",
+                    ""name"": ""ShootGun"",
                     ""type"": ""Button"",
                     ""id"": ""e5d6d13b-7602-4b63-b7f1-d5920d8df652"",
                     ""expectedControlType"": """",
@@ -280,7 +280,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Shoot"",
+                    ""action"": ""ShootGun"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -291,7 +291,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Shoot"",
+                    ""action"": ""ShootGun"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -567,7 +567,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PlayerControls_Jump = m_PlayerControls.FindAction("Jump", throwIfNotFound: true);
         m_PlayerControls_Crouch = m_PlayerControls.FindAction("Crouch", throwIfNotFound: true);
         m_PlayerControls_Prone = m_PlayerControls.FindAction("Prone", throwIfNotFound: true);
-        m_PlayerControls_Shoot = m_PlayerControls.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerControls_ShootGun = m_PlayerControls.FindAction("ShootGun", throwIfNotFound: true);
         m_PlayerControls_Holster = m_PlayerControls.FindAction("Holster", throwIfNotFound: true);
         m_PlayerControls_Run = m_PlayerControls.FindAction("Run", throwIfNotFound: true);
         m_PlayerControls_PauseRun = m_PlayerControls.FindAction("PauseRun", throwIfNotFound: true);
@@ -627,7 +627,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_Jump;
     private readonly InputAction m_PlayerControls_Crouch;
     private readonly InputAction m_PlayerControls_Prone;
-    private readonly InputAction m_PlayerControls_Shoot;
+    private readonly InputAction m_PlayerControls_ShootGun;
     private readonly InputAction m_PlayerControls_Holster;
     private readonly InputAction m_PlayerControls_Run;
     private readonly InputAction m_PlayerControls_PauseRun;
@@ -642,7 +642,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerControls_Jump;
         public InputAction @Crouch => m_Wrapper.m_PlayerControls_Crouch;
         public InputAction @Prone => m_Wrapper.m_PlayerControls_Prone;
-        public InputAction @Shoot => m_Wrapper.m_PlayerControls_Shoot;
+        public InputAction @ShootGun => m_Wrapper.m_PlayerControls_ShootGun;
         public InputAction @Holster => m_Wrapper.m_PlayerControls_Holster;
         public InputAction @Run => m_Wrapper.m_PlayerControls_Run;
         public InputAction @PauseRun => m_Wrapper.m_PlayerControls_PauseRun;
@@ -674,9 +674,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Prone.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnProne;
                 @Prone.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnProne;
                 @Prone.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnProne;
-                @Shoot.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShoot;
-                @Shoot.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShoot;
-                @Shoot.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShoot;
+                @ShootGun.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShootGun;
+                @ShootGun.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShootGun;
+                @ShootGun.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShootGun;
                 @Holster.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHolster;
                 @Holster.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHolster;
                 @Holster.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHolster;
@@ -711,9 +711,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Prone.started += instance.OnProne;
                 @Prone.performed += instance.OnProne;
                 @Prone.canceled += instance.OnProne;
-                @Shoot.started += instance.OnShoot;
-                @Shoot.performed += instance.OnShoot;
-                @Shoot.canceled += instance.OnShoot;
+                @ShootGun.started += instance.OnShootGun;
+                @ShootGun.performed += instance.OnShootGun;
+                @ShootGun.canceled += instance.OnShootGun;
                 @Holster.started += instance.OnHolster;
                 @Holster.performed += instance.OnHolster;
                 @Holster.canceled += instance.OnHolster;
@@ -756,7 +756,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnProne(InputAction.CallbackContext context);
-        void OnShoot(InputAction.CallbackContext context);
+        void OnShootGun(InputAction.CallbackContext context);
         void OnHolster(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnPauseRun(InputAction.CallbackContext context);
