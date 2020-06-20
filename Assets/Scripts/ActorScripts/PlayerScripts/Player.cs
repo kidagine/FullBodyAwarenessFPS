@@ -37,4 +37,13 @@ public class Player : MonoBehaviour
             _playerGun.Shoot();
         }
     }
+
+    public void ReloadGun()
+    {
+        if (!IsGunHolstered)
+        {
+            _animator.SetTrigger("Reload");
+            _playerGun.Reload();
+        }
+    }
 }

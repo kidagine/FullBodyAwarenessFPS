@@ -62,6 +62,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "ReloadGun",
+                    "type": "Button",
+                    "id": "b5316683-3b44-41aa-a3f1-d0c659c3cc8d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Holster",
                     "type": "Button",
                     "id": "ad350d75-93ee-494f-9577-0cfe2a892992",
@@ -510,6 +518,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "SwapCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8ac6379f-9cec-4af9-b16f-c9b8c8682a7d",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ReloadGun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7efc9712-e2ed-4d0e-b63a-3e6ecdd53fac",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "ReloadGun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

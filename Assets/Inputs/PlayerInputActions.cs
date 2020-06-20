@@ -75,6 +75,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""ReloadGun"",
+                    ""type"": ""Button"",
+                    ""id"": ""b5316683-3b44-41aa-a3f1-d0c659c3cc8d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Holster"",
                     ""type"": ""Button"",
                     ""id"": ""ad350d75-93ee-494f-9577-0cfe2a892992"",
@@ -525,6 +533,28 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""SwapCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ac6379f-9cec-4af9-b16f-c9b8c8682a7d"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ReloadGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7efc9712-e2ed-4d0e-b63a-3e6ecdd53fac"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ReloadGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -568,6 +598,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PlayerControls_Crouch = m_PlayerControls.FindAction("Crouch", throwIfNotFound: true);
         m_PlayerControls_Prone = m_PlayerControls.FindAction("Prone", throwIfNotFound: true);
         m_PlayerControls_ShootGun = m_PlayerControls.FindAction("ShootGun", throwIfNotFound: true);
+        m_PlayerControls_ReloadGun = m_PlayerControls.FindAction("ReloadGun", throwIfNotFound: true);
         m_PlayerControls_Holster = m_PlayerControls.FindAction("Holster", throwIfNotFound: true);
         m_PlayerControls_Run = m_PlayerControls.FindAction("Run", throwIfNotFound: true);
         m_PlayerControls_PauseRun = m_PlayerControls.FindAction("PauseRun", throwIfNotFound: true);
@@ -628,6 +659,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_Crouch;
     private readonly InputAction m_PlayerControls_Prone;
     private readonly InputAction m_PlayerControls_ShootGun;
+    private readonly InputAction m_PlayerControls_ReloadGun;
     private readonly InputAction m_PlayerControls_Holster;
     private readonly InputAction m_PlayerControls_Run;
     private readonly InputAction m_PlayerControls_PauseRun;
@@ -643,6 +675,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Crouch => m_Wrapper.m_PlayerControls_Crouch;
         public InputAction @Prone => m_Wrapper.m_PlayerControls_Prone;
         public InputAction @ShootGun => m_Wrapper.m_PlayerControls_ShootGun;
+        public InputAction @ReloadGun => m_Wrapper.m_PlayerControls_ReloadGun;
         public InputAction @Holster => m_Wrapper.m_PlayerControls_Holster;
         public InputAction @Run => m_Wrapper.m_PlayerControls_Run;
         public InputAction @PauseRun => m_Wrapper.m_PlayerControls_PauseRun;
@@ -677,6 +710,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @ShootGun.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShootGun;
                 @ShootGun.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShootGun;
                 @ShootGun.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShootGun;
+                @ReloadGun.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReloadGun;
+                @ReloadGun.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReloadGun;
+                @ReloadGun.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReloadGun;
                 @Holster.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHolster;
                 @Holster.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHolster;
                 @Holster.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHolster;
@@ -714,6 +750,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @ShootGun.started += instance.OnShootGun;
                 @ShootGun.performed += instance.OnShootGun;
                 @ShootGun.canceled += instance.OnShootGun;
+                @ReloadGun.started += instance.OnReloadGun;
+                @ReloadGun.performed += instance.OnReloadGun;
+                @ReloadGun.canceled += instance.OnReloadGun;
                 @Holster.started += instance.OnHolster;
                 @Holster.performed += instance.OnHolster;
                 @Holster.canceled += instance.OnHolster;
@@ -757,6 +796,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnProne(InputAction.CallbackContext context);
         void OnShootGun(InputAction.CallbackContext context);
+        void OnReloadGun(InputAction.CallbackContext context);
         void OnHolster(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnPauseRun(InputAction.CallbackContext context);
