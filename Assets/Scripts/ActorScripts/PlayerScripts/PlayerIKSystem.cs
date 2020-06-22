@@ -6,6 +6,7 @@ public class PlayerIKSystem : MonoBehaviour
     [SerializeField] private Animator _animator = default;
     [SerializeField] private GameObject _fpsCamera = default;
     [SerializeField] private Transform _lookAtTarget;
+    public Transform head;
     [Range(0, 2)] [SerializeField] private float _groundRaycast = 1.14f;
     [Range(0, 2)] [SerializeField] private float _raycastDownDistance = 1.5f;
     [Range(0, 1)] [SerializeField] private float _pelvisUpAndDownSpeed = 0.28f;
@@ -29,14 +30,15 @@ public class PlayerIKSystem : MonoBehaviour
 
     void LateUpdate()
     {
-        //if (_fpsCamera.activeSelf)
-        //{
-        //    _head.LookAt(_lookAtTarget);
-        //}
-        //else
-        //{
-        //    _head.LookAt(null);
-        //}
+        if (_fpsCamera.activeSelf)
+        {
+            _head.LookAt(_lookAtTarget);
+            head.LookAt(_lookAtTarget);
+        }
+        else
+        {
+            _head.LookAt(null);
+        }
     }
 
     public Vector3 GetAdjustedFootTarget(HumanBodyBones foot)

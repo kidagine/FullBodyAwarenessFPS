@@ -5,15 +5,14 @@ public class PlayerFPSCamera : MonoBehaviour, IPlayerCamera
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private GameObject _player;
     [SerializeField] private Transform _playerHead;
-    [SerializeField] private Transform _playerEyes;
     [SerializeField] private Transform _playerCameraPoint;
     [SerializeField] private Transform _playerPivot;
     [Range(1.0f, 10f)] private readonly float _cameraSensitivity = 10.0f;
-    private Vector3 rotMoveables;
-    private float _xRotation;
     private readonly int _maximuDownwardsYRotation = 85;
     private readonly int _maximumUpwardsYRotation = -90;
+    private Vector3 rotMoveables;
     private Vector2 _cameraInput;
+    private float _xRotation;
 
 
     void Start()

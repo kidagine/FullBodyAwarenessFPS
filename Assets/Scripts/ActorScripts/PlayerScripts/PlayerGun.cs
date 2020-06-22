@@ -11,11 +11,11 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] private Camera _camera = default;
     [SerializeField] private PlayerUI _playerUI = default;
     [SerializeField] private EntityAudio _playerGunAudio = default;
-    private readonly float _fireRate = 0.62f;
+    private readonly float _fireRate = 0.6f;
     private readonly int _fireRange = 100;
     private readonly int _maxClipSize = 15;
-    private float _currentFireRate = 0.62f;
-    private int _totalAmmoAmount = 999;
+    private float _currentFireRate = 0.6f;
+    private int _totalAmmoAmount = 99;
     private int _currentClipSize = 15;
     private bool _canShoot = true;
 
@@ -53,6 +53,7 @@ public class PlayerGun : MonoBehaviour
                 Physics.Raycast(_camera.transform.position, _camera.transform.forward, out RaycastHit hit, _fireRange);
                 if (hit.collider != null)
                 {
+                    _playerGunAudio.Play("BulletConcrete");
                     if (hit.collider.gameObject.TryGetComponent(out IDamageable damageable))
                     {
                         if (damageable.GetHealth() > 1)
