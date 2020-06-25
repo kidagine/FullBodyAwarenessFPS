@@ -14,7 +14,6 @@ public class PlayerGunUI : MonoBehaviour
 
     public void SetTotalAmmo(int amount)
     {
-        Debug.Log("c" + amount);
         _totalAmmoText.text = amount.ToString();
     }
 }
