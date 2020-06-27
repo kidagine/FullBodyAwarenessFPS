@@ -16,11 +16,13 @@ public class Player : MonoBehaviour
     {
         if (!IsGunHolstered)
         {
+            _playerUI.PlayerGunUI.SetGunUI(false);
             _playerUI.PlayerReticleUI.SetGunReticle(false);
             _gun.SetParent(_gunHolsterPlacement);
         }
         else
         {
+            _playerUI.PlayerGunUI.SetGunUI(true, _playerGun.GetGunData());
             _playerUI.PlayerReticleUI.SetGunReticle(true);
             _gun.SetParent(_gunUnholsterPlacement);
         }

@@ -11,19 +11,15 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] private Camera _camera = default;
     [SerializeField] private PlayerUI _playerUI = default;
     [SerializeField] private EntityAudio _playerGunAudio = default;
+    [SerializeField] private GunSO _gunSO = default;
     private readonly float _fireRate = 0.6f;
     private readonly int _fireRange = 100;
-    private readonly int _maxClipSize = 15;
     private float _currentFireRate = 0.6f;
-    private int _totalAmmoAmount = 99;
-    private int _currentClipSize = 15;
     private bool _canShoot = true;
 
 
     void Start()
     {
-        _playerUI.PlayerGunUI.SetCurrentClip(_currentClipSize);
-        _playerUI.PlayerGunUI.SetTotalAmmo(_totalAmmoAmount);
         if (barrelLocation == null)
             barrelLocation = transform;
     }
@@ -45,7 +41,7 @@ public class PlayerGun : MonoBehaviour
     {
         if (_canShoot)
         {
-            if (_currentClipSize > 0)
+            if (_gunSO.currentClipSize > 0)
             {
                 _canShoot = false;
                 _animator.SetTrigger("Fire");
@@ -70,8 +66,8 @@ public class PlayerGun : MonoBehaviour
                     bulletHole.transform.SetParent(hit.transform);
                 }
                 Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
-                _currentClipSize--;
-                _playerUI.PlayerGunUI.SetCurrentClip(_currentClipSize);
+                _gunSO.currentClipSize--;
+                _playerUI.PlayerGunUI.SetCurrentClip(_gunSO.currentClipSize);
             }
             else
             {
@@ -89,18 +85,23 @@ public class PlayerGun : MonoBehaviour
 
     public void Reload()
     {
-        if (_totalAmmoAmount != 0)
+        if (_gunSO.totalAmmoAmount != 0)
         {
             _playerGunAudio.Play("Reload");
-            int clipToLoad = _maxClipSize - _currentClipSize;
-            if (_totalAmmoAmount < clipToLoad)
+            int clipToLoad = _gunSO.maxClipSize - _gunSO.currentClipSize;
+            if (_gunSO.totalAmmoAmount < clipToLoad)
             {
-                clipToLoad = _totalAmmoAmount;
+                clipToLoad = _gunSO.totalAmmoAmount;
             }
-            _currentClipSize += clipToLoad;
-            _totalAmmoAmount -= clipToLoad;
-            _playerUI.PlayerGunUI.SetCurrentClip(_currentClipSize);
-            _playerUI.PlayerGunUI.SetTotalAmmo(_totalAmmoAmount);
+            _gunSO.currentClipSize += clipToLoad;
+            _gunSO.totalAmmoAmount -= clipToLoad;
+            _playerUI.PlayerGunUI.SetCurrentClip(_gunSO.currentClipSize);
+            _playerUI.PlayerGunUI.SetTotalAmmo(_gunSO.totalAmmoAmount);
         }
+    }
+
+    public GunSO GetGunData()
+    {
+        return _gunSO;
     }
 }
