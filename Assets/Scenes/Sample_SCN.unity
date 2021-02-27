@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2035111234}
-  m_IndirectSpecularColor: {r: 130.96178, g: 162.2124, b: 214.64185, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -276,6 +276,99 @@ Transform:
   m_Father: {fileID: 539335181}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &197777365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 197777369}
+  - component: {fileID: 197777368}
+  - component: {fileID: 197777367}
+  - component: {fileID: 197777366}
+  m_Layer: 9
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &197777366
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197777365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &197777367
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197777365}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &197777368
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197777365}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &197777369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197777365}
+  m_LocalRotation: {x: 0, y: 0, z: -0.56446284, w: 0.82545847}
+  m_LocalPosition: {x: 7.61, y: 1.33, z: 0.35}
+  m_LocalScale: {x: 0.5, y: 10, z: 7.04}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -68.73}
 --- !u!1 &211929259
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,7 +691,7 @@ GameObject:
   - component: {fileID: 372488683}
   - component: {fileID: 372488682}
   - component: {fileID: 372488681}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main_terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2545,9 +2638,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc0f713f906c8948aac9b1efb14083f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerIK: {fileID: 919132147537148366}
+  _groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
   _walkSpeed: 1.5
   _jogSpeed: 3.5
   _sprintSpeed: 5
+  _crouchSpeed: 1.5
 --- !u!114 &919132147537148366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2561,6 +2659,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lookAtTarget: {fileID: 1760311411}
+  _groundRaycast: 0.1
+  _pelvisUpAndDownSpeed: 0.35
+  _feetToIKPositionSpeed: 0.35
+  _rightFootIKPosition: {x: 0, y: 0, z: 0}
+  _leftFootIKPosition: {x: 0, y: 0, z: 0}
+  _rightFootIKRotation: {x: 0, y: 0, z: 0, w: 0}
+  _leftFootIKRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &919132147537148367
 MonoBehaviour:
   m_ObjectHideFlags: 0

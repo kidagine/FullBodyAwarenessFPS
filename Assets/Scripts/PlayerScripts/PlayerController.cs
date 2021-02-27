@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.Gameplay.Movement.performed += SetMovement;
         _playerInputActions.Gameplay.Look.performed += SetLook;
-        _playerInputActions.Gameplay.Sprint.performed += Sprint;
+        _playerInputActions.Gameplay.Sprint.performed += StartSprint;
+        _playerInputActions.Gameplay.Sprint.canceled += StopSprint;
         _playerInputActions.Gameplay.Crouch.performed += ToggleCrouch;
         _playerInputActions.Gameplay.Walk.performed += ToggleWalk;
         _playerInputActions.Gameplay.Camera.performed += ToggleCamera;
@@ -38,9 +39,14 @@ public class PlayerController : MonoBehaviour
         _playerCamera.SetLookInput(context.ReadValue<Vector2>());
     }
 
-    private void Sprint(InputAction.CallbackContext context)
+    private void StartSprint(InputAction.CallbackContext context)
     {
-        _playerMovement.SprintAction();
+        _playerMovement.StartSprintAction();
+    }
+
+    private void StopSprint(InputAction.CallbackContext context)
+    {
+        _playerMovement.StopSprintAction();
     }
 
     private void ToggleCrouch(InputAction.CallbackContext context)
