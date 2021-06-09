@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 2
+  version: 11
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -22,8 +22,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Gawain_Pants
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
-  m_ShaderKeywords: _ANISOTROPYMAP _DETAIL_MAP _DISABLE_DECALS _MASKMAP _MATERIAL_FEATURE_ANISOTROPY
-    _NORMALMAP _NORMALMAP_TANGENT_SPACE
+  m_ShaderKeywords: _ANISOTROPYMAP _DETAIL_MAP _DISABLE_DECALS _DISABLE_SSR_TRANSPARENT
+    _MASKMAP _MATERIAL_FEATURE_ANISOTROPY _NORMALMAP _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -36,6 +36,7 @@ Material:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
   - TransparentBackface
+  - RayTracingPrepass
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -339,6 +340,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - Boolean_9F1019DA: 0
     - Vector1_1865DAD6: 0.8
@@ -370,6 +383,8 @@ Material:
     - _AlphaCutoffStochastic: 0
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
+    - _AlphaToMask: 0
+    - _AlphaToMaskInspectorValue: 0
     - _Anisotropy: 0.3
     - _BlendMode: 0
     - _CoatMask: 0
@@ -515,6 +530,8 @@ Material:
     - _Metallic1: 1
     - _Metallic2: 1
     - _Metallic3: 0
+    - _MetallicRemapMax: 1
+    - _MetallicRemapMin: 0
     - _NormalMapSpace: 0
     - _NormalMapSpace0: 0
     - _NormalMapSpace1: 0
@@ -531,13 +548,16 @@ Material:
     - _OpacityAsDensity1: 0
     - _OpacityAsDensity2: 0
     - _OpacityAsDensity3: 0
+    - _OpaqueCullMode: 2
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
     - _PreRefractionPass: 1
+    - _RayTracing: 0
     - _ReceivesSSR: 1
+    - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
     - _RefractionSSRayModel: 0
     - _RequireSplitLighting: 1
@@ -692,3 +712,4 @@ Material:
     - _uvBaseST: {r: 1, g: 1, b: 0, a: 0}
     - _uvThreadMask: {r: 1, g: 1, b: 0, a: 0}
     - _uvThreadST: {r: 54, g: 50, b: 0.26, a: 0}
+  m_BuildTextureStacks: []
